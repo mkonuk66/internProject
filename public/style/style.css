@@ -4,32 +4,24 @@
 a {
   text-decoration: none;
 }
-
+.divSpace {
+  margin-top: 80px;
+}
 /* Navbar Section */
 
 .navbar {
   background-color: transparent;
   flex-direction: row;
-  height: 80px;
+  height: 100px;
 }
 
 .navScroll {
   background-color: #e30613;
 }
 
-.navbarTitleBlock {
-  margin-left: 10%;
-}
-
-.navbarTitle {
-  font-weight: bold;
-  font-size: 40px;
-
-  color: #fff;
-}
-
-.navbarTitle:hover {
-  color: #000;
+#navLogo {
+  padding-left: 10rem;
+  padding-right: 25rem;
 }
 
 .navLinks {
@@ -39,15 +31,21 @@ a {
 .navLinks:hover {
   color: #000;
 }
+@media only screen and (max-width: 960px) and (min-width: 750px) {
+  #navLogo {
+    padding-left: 5rem;
+    padding-right: 0rem;
+  }
+}
 
-@media (max-width: 960px) {
+@media (max-width: 750px) {
   .navbar {
     background-color: #e30613;
   }
 
-  .navbarTitle {
-    font-weight: bold;
-    font-size: 23px;
+  #navLogo {
+    padding-left: 0%;
+    padding-right: 0%;
   }
 
   .navLinkBlock {
@@ -58,5 +56,20 @@ a {
     display: flex;
     justify-content: center;
     color: #fff;
+  }
+  .mobileDiv {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 400px) {
+  #navLogo {
+    width: 90%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+  .navbarHamburger {
+    display: flex;
+    flex-direction: row;
   }
 }
