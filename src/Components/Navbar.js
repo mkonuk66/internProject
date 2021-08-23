@@ -3,7 +3,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -25,7 +24,7 @@ const NavBar = (props) => {
   }
 
   function navScroll() {
-    if (window.scrollY >= 15) {
+    if (window.scrollY >= 100) {
       document.getElementById("navigation").classList.add("navScroll");
     } else {
       document.getElementById("navigation").classList.remove("navScroll");
@@ -34,9 +33,9 @@ const NavBar = (props) => {
   return (
     <div>
       <Navbar light fixed="top" expand="md" className="navbar" id="navigation">
-        <NavbarBrand href="/" className="navbarTitleBlock">
-          <div className="navbarTitle">Bozok Üniversitesi</div>
-        </NavbarBrand>
+        <div className="navbarHamburger">
+          <img src="./images/logo_yazi.png" alt="navLogo" id="navLogo" />
+        </div>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar className="navLinkBlock">
           <Nav className="m-auto" navbar>
