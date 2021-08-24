@@ -5,7 +5,7 @@ export default class NotFound extends Component {
     return (
       <div>
         <div className="divSpace" />
-        404 Not Found!
+        <p style={{ fontSize: "7rem", textAlign: "center" }}> 404 Not Found!</p>
       </div>
     );
   }
