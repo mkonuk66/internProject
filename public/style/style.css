@@ -1,14 +1,34 @@
-* {
+/*
+======================================================================
+*   Intern Web Site Project
+*   url: github.com/mkonuk66/internProject
+*   16-08-2021
+======================================================================
+   TOC:
+        a. General Style
+        b. Navbar Section
+        c. Footer Section
+        d. Slider Section
+        e. Not Found Section
+   
+   
+====================================================================== */
+
+/* ========================== General Style ========================== */
+
+/* * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+} */
+
 a {
   text-decoration: none;
 }
+
 .divSpace {
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
-/* Navbar Section */
+/* ========================== Navbar Section ========================== */
 
 .navbar {
   background-color: transparent;
@@ -17,21 +37,43 @@ a {
 }
 
 .navScroll {
-  background-color: #e30613;
+  background-color: rgba(118, 7, 16);
 }
 
 #navLogo {
-  padding-left: 10rem;
-  padding-right: 25rem;
+  margin-left: 10rem;
+  margin-right: 17rem;
 }
 
 .navLinks {
+  display: inline-block;
   text-decoration: none;
   color: #fff;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.navLinks:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #fff;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
 }
 
 .navLinks:hover {
-  color: #000;
+  color: rgb(168, 168, 168);
+}
+
+.navLinks:hover:after {
+  width: 100%;
+  left: 0;
+  background: rgb(168, 168, 168);
 }
 
 @media only screen and (max-width: 960px) and (min-width: 750px) {
@@ -43,7 +85,7 @@ a {
 
 @media (max-width: 750px) {
   .navbar {
-    background-color: #e30613;
+    background-color: rgba(118, 7, 16);
   }
 
   #navLogo {
@@ -52,7 +94,7 @@ a {
   }
 
   .navLinkBlock {
-    background-color: #e30613;
+    background-color: rgba(118, 7, 16);
   }
 
   .navLinks {
@@ -60,6 +102,7 @@ a {
     justify-content: center;
     color: #fff;
   }
+
   .mobileDiv {
     margin-top: 100px;
   }
@@ -71,22 +114,25 @@ a {
     padding-left: 0%;
     padding-right: 0%;
   }
+
   .navbarHamburger {
     display: flex;
     flex-direction: row;
   }
 }
 
-/* Slider */
+/* ========================== Slider Section ========================== */
+
 .slider {
   width: 100%;
   height: auto;
   margin: auto;
 }
 
-/* Footer */
+/* ========================== Footer Section ========================== */
+
 footer {
-  background-color: #e30613;
+  background-color: rgba(118, 7, 16);
   width: 100%;
   padding-top: 1.9rem;
   padding-bottom: 1rem;
@@ -110,33 +156,56 @@ footer a {
   text-decoration: none;
   color: #fff;
 }
+
 footer a:hover {
-  text-decoration: none;
-  color: #000;
+  color: rgb(168, 168, 168);
 }
+
+.footerYoutube:hover {
+  color: #e62117;
+}
+
+.footerTwitter:hover {
+  color: #08a0e9;
+}
+
+.footerInstagram:hover {
+  color: #dd2a7b;
+}
+
+.footerFacebook:hover {
+  color: #3b5998;
+}
+
 .footerContact {
   margin-left: 5rem;
   color: #fff;
   width: 35rem;
 }
+
 .footerContact span {
   font-style: italic;
   font-weight: 300;
 }
+
 .footerSocial {
   margin-left: 5rem;
   color: #fff;
   width: 15rem;
 }
+
 .footerSocial a {
   margin-left: 5%;
 }
+
 .footerSocial {
   color: #fff;
 }
+
 footer hr {
   color: #fff;
 }
+
 @media (max-width: 960px) {
   .footerBlock {
     flex-direction: column;
@@ -162,4 +231,12 @@ footer hr {
     width: auto;
     height: auto;
   }
+}
+
+/* ========================== Not Found Section ========================== */
+
+.notFound {
+  padding: 10rem;
+  font-size: 50px;
+  text-align: center;
 }

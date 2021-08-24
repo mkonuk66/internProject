@@ -34,7 +34,9 @@ const NavBar = (props) => {
     <div>
       <Navbar light fixed="top" expand="md" className="navbar" id="navigation">
         <div className="navbarHamburger">
-          <img src="./images/logo_yazi.png" alt="navLogo" id="navLogo" />
+          <a href="/">
+            <img src="./images/logo_yazi.png" alt="navLogo" id="navLogo" />
+          </a>
         </div>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar className="navLinkBlock">
@@ -56,7 +58,7 @@ const NavBar = (props) => {
                   ***
                 </Link> */}
                 <a href="*" className="navLinks">
-                  ---
+                  Akademik
                 </a>
               </NavLink>
             </NavItem>
@@ -67,7 +69,7 @@ const NavBar = (props) => {
                   ***
                 </Link> */}
                 <a href="*" className="navLinks">
-                  ---
+                  Öğrenci
                 </a>
               </NavLink>
             </NavItem>
@@ -78,7 +80,7 @@ const NavBar = (props) => {
                   ***
                 </Link> */}
                 <a href="*" className="navLinks">
-                  ---
+                  İletişim
                 </a>
               </NavLink>
             </NavItem>

@@ -58,13 +58,15 @@ export default class Footer extends Component {
                 href="https://www.facebook.com/bozokedutr"
                 target="_blank"
                 rel="noreferrer"
+                className="footerFacebook"
               >
-                <i className="fa fa-facebook fa-2x "></i>
+                <i className="fa fa-facebook fa-2x"></i>
               </a>
               <a
                 href="https://www.instagram.com/bozokedutr"
                 target="_blank"
                 rel="noreferrer"
+                className="footerInstagram"
               >
                 <i className="fa fa-instagram fa-2x"></i>
               </a>
@@ -72,6 +74,7 @@ export default class Footer extends Component {
                 href="https://www.twitter.com/bozokedutr"
                 target="_blank"
                 rel="noreferrer"
+                className="footerTwitter"
               >
                 <i className="fa fa-twitter fa-2x"></i>
               </a>
@@ -79,6 +82,7 @@ export default class Footer extends Component {
                 href="https://www.youtube.com//user/BozokUniversitesi"
                 target="_blank"
                 rel="noreferrer"
+                className="footerYoutube"
               >
                 <i className="fa fa-youtube fa-2x"></i>
               </a>
