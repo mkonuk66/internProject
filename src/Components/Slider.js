@@ -5,13 +5,15 @@ import { Carousel } from "react-responsive-carousel";
 class Slider extends Component {
   render() {
     return (
-      <div className="mobileDiv">
+      <div className="slider">
         {" "}
+        <div className="mobileDiv" />
         <Carousel
-          width="100%"
-          infiniteLoop="true"
-          autoPlay="true"
+          infiniteLoop={1}
+          autoPlay={1}
+          centerMode={1}
           showThumbs={0}
+          showStatus={0}
         >
           <div>
             <img

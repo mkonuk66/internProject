@@ -41,33 +41,45 @@ const NavBar = (props) => {
           <Nav className="m-auto" navbar>
             <NavItem>
               <NavLink>
-                <Link to="/" className="navLinks">
+                {/* <Link to="/" className="navLinks">
                   Ana Sayfa
-                </Link>
+                </Link> */}
+                <a href="/" className="navLinks">
+                  Ana Sayfa
+                </a>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink>
                 {" "}
-                <Link to="*" className="navLinks">
+                {/* <Link to="*" className="navLinks">
                   ***
-                </Link>
+                </Link> */}
+                <a href="*" className="navLinks">
+                  ---
+                </a>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink>
                 {" "}
-                <Link to="*" className="navLinks">
+                {/* <Link to="*" className="navLinks">
                   ***
-                </Link>
+                </Link> */}
+                <a href="*" className="navLinks">
+                  ---
+                </a>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink>
                 {" "}
-                <Link to="*" className="navLinks">
+                {/* <Link to="*" className="navLinks">
                   ***
-                </Link>
+                </Link> */}
+                <a href="*" className="navLinks">
+                  ---
+                </a>
               </NavLink>
             </NavItem>
           </Nav>

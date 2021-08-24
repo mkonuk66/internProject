@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Nav from "./Components/Navbar";
 import HomePage from "./Components/HomePage";
 import NotFound from "./Components/NotFound";
+import Footer from "./Components/Footer";
 
 class App extends Component {
   componentDidMount() {}
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="*" component={NotFound} />
         </Switch>
+        <Footer />
       </div>
     );
   }

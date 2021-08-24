@@ -7,6 +7,7 @@ a {
 .divSpace {
   margin-top: 80px;
 }
+
 /* Navbar Section */
 
 .navbar {
@@ -28,9 +29,11 @@ a {
   text-decoration: none;
   color: #fff;
 }
+
 .navLinks:hover {
   color: #000;
 }
+
 @media only screen and (max-width: 960px) and (min-width: 750px) {
   #navLogo {
     padding-left: 5rem;
@@ -71,5 +74,92 @@ a {
   .navbarHamburger {
     display: flex;
     flex-direction: row;
+  }
+}
+
+/* Slider */
+.slider {
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+/* Footer */
+footer {
+  background-color: #e30613;
+  width: 100%;
+  padding-top: 1.9rem;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.footerBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerLinkBlock {
+  display: flex;
+  flex-direction: row;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+footer a:hover {
+  text-decoration: none;
+  color: #000;
+}
+.footerContact {
+  margin-left: 5rem;
+  color: #fff;
+  width: 35rem;
+}
+.footerContact span {
+  font-style: italic;
+  font-weight: 300;
+}
+.footerSocial {
+  margin-left: 5rem;
+  color: #fff;
+  width: 15rem;
+}
+.footerSocial a {
+  margin-left: 5%;
+}
+.footerSocial {
+  color: #fff;
+}
+footer hr {
+  color: #fff;
+}
+@media (max-width: 960px) {
+  .footerBlock {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footerLinkBlock {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footerContact {
+    margin: 1rem;
+    color: #fff;
+    width: auto;
+    height: auto;
+  }
+
+  .footerSocial {
+    margin: 1rem;
+    color: #fff;
+    width: auto;
+    height: auto;
   }
 }
