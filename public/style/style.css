@@ -16,9 +16,9 @@
 
 /* ========================== General Style ========================== */
 
-/* * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-} */
+* {
+  font-family: Oswald, sans-serif;
+}
 
 a {
   text-decoration: none;
@@ -89,8 +89,8 @@ a {
   }
 
   #navLogo {
-    padding-left: 0%;
-    padding-right: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
   }
 
   .navLinkBlock {
@@ -111,8 +111,8 @@ a {
 @media (max-width: 400px) {
   #navLogo {
     width: 90%;
-    padding-left: 0%;
-    padding-right: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
   }
 
   .navbarHamburger {
@@ -140,6 +140,19 @@ footer {
   font-weight: bold;
 }
 
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+
+footer a:hover {
+  color: rgb(168, 168, 168);
+}
+
+footer hr {
+  color: #fff;
+}
+
 .footerBlock {
   display: flex;
   flex-direction: row;
@@ -150,15 +163,6 @@ footer {
 .footerLinkBlock {
   display: flex;
   flex-direction: row;
-}
-
-footer a {
-  text-decoration: none;
-  color: #fff;
-}
-
-footer a:hover {
-  color: rgb(168, 168, 168);
 }
 
 .footerYoutube:hover {
@@ -202,10 +206,6 @@ footer a:hover {
   color: #fff;
 }
 
-footer hr {
-  color: #fff;
-}
-
 @media (max-width: 960px) {
   .footerBlock {
     flex-direction: column;
@@ -236,7 +236,147 @@ footer hr {
 /* ========================== Not Found Section ========================== */
 
 .notFound {
-  padding: 10rem;
+  width: 100vw;
+  padding-top: 5rem;
+  height: 60vh;
   font-size: 50px;
   text-align: center;
+}
+
+/* =========================== Notice Section =========================== */
+
+.notice {
+  font-family: "Open Sans";
+  color: white;
+}
+
+.noticeTitle {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.notice a {
+  text-decoration: none;
+  padding: 2px 5px;
+  color: black;
+}
+.notice a:hover {
+  transition: 0.66s ease;
+  color: rgba(118, 7, 16);
+}
+
+.noticeDate {
+  display: flex;
+  background-color: rgba(118, 7, 16);
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-style: groove;
+  border-radius: 1rem;
+  padding: 0.4rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+.noticeDate:hover {
+  transition: 0.36s ease;
+  cursor: pointer;
+  color: rgba(118, 7, 16);
+  background-color: white;
+}
+
+/* =========================== Events Section =========================== */
+
+.event {
+  font-family: "Open Sans";
+  color: white;
+}
+
+.eventTitle {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.event a {
+  text-decoration: none;
+  padding: 2px 5px;
+  color: black;
+}
+.event a:hover {
+  transition: 0.66s ease;
+  color: rgba(118, 7, 16);
+}
+
+.eventDate {
+  display: flex;
+  background-color: rgba(118, 7, 16);
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-style: groove;
+  border-radius: 1rem;
+  padding: 0.4rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+.eventDate:hover {
+  transition: 0.36s ease;
+  cursor: pointer;
+  color: rgba(118, 7, 16);
+  background-color: white;
+}
+
+/* ============================ Yobü Section ============================ */
+.yobu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.yobuShadows {
+  position: relative;
+  text-transform: uppercase;
+  text-shadow: -15px 5px 20px rgb(66, 66, 66);
+  color: rgba(118, 7, 16);
+  letter-spacing: -0.05em;
+  user-select: none;
+  text-transform: uppercase;
+  font-size: 100px;
+  transition: all 0.25s ease-out;
+}
+
+.yobuHr {
+  color: #000;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+/* ========================== Homepage Section ========================== */
+
+.homepageBlocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.homepageHr {
+  width: 2px;
+  border-bottom: 300px;
+  border-style: dotted;
+}
+@media (max-width: 960px) {
+  .homepageBlocks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .homepageHr {
+    border-style: none;
+  }
 }
