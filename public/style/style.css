@@ -25,7 +25,7 @@ a {
 }
 
 .divSpace {
-  margin-top: 100px;
+  margin-top: 8rem;
 }
 
 /* ========================== Navbar Section ========================== */
@@ -41,8 +41,9 @@ a {
 }
 
 #navLogo {
+  width: 250px;
   margin-left: 10rem;
-  margin-right: 17rem;
+  margin-right: 20rem;
 }
 
 .navLinks {
@@ -172,9 +173,17 @@ footer hr {
 .footerTwitter:hover {
   color: #08a0e9;
 }
-
+.footerInstagram {
+  display: inline-flex;
+}
 .footerInstagram:hover {
-  color: #dd2a7b;
+  background: -moz-linear-gradient(top, #ffdc80 0%, #a742c6 100%);
+  background: -webkit-linear-gradient(top, #f77737 0%, #a742c6 100%);
+  background: linear-gradient(to bottom, #e1306c 0%, #a742c6 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .footerFacebook:hover {
@@ -261,11 +270,32 @@ footer hr {
   padding: 2px 5px;
   color: black;
 }
+
 .notice a:hover {
   transition: 0.66s ease;
   color: rgba(118, 7, 16);
 }
 
+.notice p {
+  padding: 2px 5px;
+  color: black;
+}
+
+.notice p:hover {
+  transition: 0.66s ease;
+  color: rgba(118, 7, 16);
+}
+
+.allNoticeP {
+  width: 1000px;
+  margin-bottom: 5%;
+}
+@media (max-width: 960px) {
+  .allNoticeP {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+}
 .noticeDate {
   display: flex;
   background-color: rgba(118, 7, 16);
@@ -273,17 +303,17 @@ footer hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   border-style: groove;
   border-radius: 1rem;
-  padding: 0.4rem;
+  width: 4rem;
+  height: 4rem;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
 }
 .noticeDate:hover {
   transition: 0.36s ease;
   cursor: pointer;
-  color: rgba(118, 7, 16);
+  color: black;
   background-color: white;
 }
 
@@ -317,10 +347,10 @@ footer hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   border-style: groove;
   border-radius: 1rem;
-  padding: 0.4rem;
+  width: 4rem;
+  height: 4rem;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
 }
@@ -329,6 +359,28 @@ footer hr {
   cursor: pointer;
   color: rgba(118, 7, 16);
   background-color: white;
+}
+
+.event p {
+  padding: 2px 5px;
+  color: black;
+}
+
+.allEventP {
+  width: 1000px;
+  margin-bottom: 5%;
+}
+
+@media (max-width: 960px) {
+  .allEventP {
+    width: 100%;
+    margin-bottom: 5%;
+  }
+}
+
+.event p:hover {
+  transition: 0.66s ease;
+  color: rgba(118, 7, 16);
 }
 
 /* ============================ Yobü Section ============================ */
