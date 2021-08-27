@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Events from "./Events";
+import News from "./News";
 import Notice from "./Notice";
 import Slider from "./Slider";
 import Style from "./Yobu";
@@ -15,6 +16,8 @@ export default class HomePage extends Component {
           <Events />
         </div>
         <br />
+        <hr />
+        <News />
       </div>
     );
   }
