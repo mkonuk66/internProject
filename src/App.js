@@ -6,6 +6,7 @@ import NotFound from "./Components/NotFound";
 import Footer from "./Components/Footer";
 import Notice from "./Components/AllNotice";
 import Events from "./Components/AllEvents";
+import News from "./Components/AllNews";
 
 class App extends Component {
   componentDidMount() {}
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/notice" component={Notice} />
           <Route path="/events" component={Events} />
+          <Route path="/news" component={News} />
           <Route path="*" component={NotFound} />
         </Switch>
         <Footer />
