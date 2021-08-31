@@ -42,9 +42,6 @@ const NavBar = (props) => {
           <Nav className="m-auto" navbar>
             <NavItem>
               <NavLink>
-                {/* <Link to="/" className="navLinks">
-                  Ana Sayfa
-                </Link> */}
                 <a href="/" className="navLinks">
                   Ana Sayfa
                 </a>
@@ -52,10 +49,13 @@ const NavBar = (props) => {
             </NavItem>
             <NavItem>
               <NavLink>
-                {" "}
-                {/* <Link to="*" className="navLinks">
-                  ***
-                </Link> */}
+                <a href="*" className="navLinks">
+                  Üniversitemiz
+                </a>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
                 <a href="*" className="navLinks">
                   Akademik
                 </a>
@@ -63,10 +63,13 @@ const NavBar = (props) => {
             </NavItem>
             <NavItem>
               <NavLink>
-                {" "}
-                {/* <Link to="*" className="navLinks">
-                  ***
-                </Link> */}
+                <a href="*" className="navLinks">
+                  Birimler
+                </a>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
                 <a href="*" className="navLinks">
                   Öğrenci
                 </a>
@@ -74,10 +77,27 @@ const NavBar = (props) => {
             </NavItem>
             <NavItem>
               <NavLink>
-                {" "}
-                {/* <Link to="*" className="navLinks">
-                  ***
-                </Link> */}
+                <a href="*" className="navLinks">
+                  E-Hizmetler
+                </a>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                <a href="*" className="navLinks">
+                  Uluslararası
+                </a>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                <a href="*" className="navLinks">
+                  Hızlı Erişim
+                </a>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
                 <a href="*" className="navLinks">
                   İletişim
                 </a>
