@@ -73,18 +73,18 @@ a {
   margin-top: 5px;
   right: 0;
   background: #fff;
-  transition: width 0.2s ease;
-  -webkit-transition: width 0.2s ease;
+  transition: width 0.4s ease;
+  -webkit-transition: width 0.4s ease;
 }
 
 .navLinks:hover {
-  color: rgb(168, 168, 168);
+  color: #fff;
 }
 
 .navLinks:hover:after {
   width: 100%;
   left: 0;
-  background: rgb(168, 168, 168);
+  background: #fff;
 }
 
 @media only screen and (max-width: 1025px) and (min-width: 750px) {
@@ -274,9 +274,12 @@ footer hr {
 
 .notFound {
   width: 100vw;
-  padding-top: 5rem;
-  height: 60vh;
-  font-size: 50px;
+  height: 100vh;
+  font-size: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
   text-align: center;
 }
 
