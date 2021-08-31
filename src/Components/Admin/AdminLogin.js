@@ -1,6 +1,22 @@
 import React, { Component } from "react";
-
+import AdminDashboard from "./AdminDashboard";
+let currentUrl = "/admin";
 export default class AdminLogin extends Component {
+  handleSubmit(e) {
+    e.preventDefault();
+    const adminId = "mEmin";
+    const adminPassword = "yobu";
+    const id = document.getElementById("userName").value;
+    const password = document.getElementById("userPassword").value;
+    if (adminId === id && adminPassword === password) {
+      localStorage.clear();
+      window.open("/adminDashboard", "_self");
+    } else {
+      alert("Hatalı kullanıcı adı veya şifre girdiniz");
+      console.log(currentUrl);
+      return currentUrl;
+    }
+  }
   render() {
     return (
       <div className="container-fluid ps-md-0">
@@ -15,7 +31,7 @@ export default class AdminLogin extends Component {
                       Yönetici Girişine Hoşgeldiniz !
                     </h3>
 
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                       <div className="form-floating mb-3">
                         <input
                           type="text"
@@ -23,7 +39,7 @@ export default class AdminLogin extends Component {
                           id="userName"
                           placeholder="Lütfen kullanıcı adınızı giriniz"
                         />
-                        <label htmlFor="userName">Kullanıcı Adı</label>
+                        <label>Kullanıcı Adı</label>
                       </div>
                       <div className="form-floating mb-3">
                         <input
@@ -32,19 +48,19 @@ export default class AdminLogin extends Component {
                           id="userPassword"
                           placeholder="Lütfen şifrenizi giriniz"
                         />
-                        <label htmlFor="userPassword">Şifre</label>
+                        <label>Şifre</label>
                       </div>
+                      <a>
+                        <button
+                          type="btn"
+                          className="btn btn-outline-danger btn-lg btn-block"
+                          onClick={this.handleSubmit}
+                        >
+                          Giriş Yap
+                        </button>
+                      </a>
 
-                      <div className="d-grid">
-                        <a href="/adminPanel">
-                          <button
-                            type="button"
-                            class="btn btn-outline-danger btn-lg btn-block"
-                          >
-                            Giriş Yap
-                          </button>
-                        </a>
-                      </div>
+                      <div className="d-grid"></div>
                     </form>
                   </div>
                 </div>
@@ -56,3 +72,16 @@ export default class AdminLogin extends Component {
     );
   }
 }
+
+// const id = "mEmin";
+// const pass = "yobü123";
+// function loginControl(params) {
+//   if (
+//     id === document.getElementById("userName").value &&
+//     pass === document.getElementById("userPassword").value
+//   ) {
+//     return <AdminDashboard />;
+//   } else {
+//     return <AdminLogin />;
+//   }
+// }

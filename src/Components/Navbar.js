@@ -41,66 +41,48 @@ const NavBar = (props) => {
         <Collapse isOpen={isOpen} navbar className="navLinkBlock">
           <Nav className="m-auto" navbar>
             <NavItem>
-              <NavLink>
-                <a href="/" className="navLinks">
-                  Ana Sayfa
-                </a>
+              <NavLink href="/" className="navLinks" style={{ color: "#fff" }}>
+                Ana Sayfa
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <a href="*" className="navLinks">
-                  Üniversitemiz
-                </a>
+              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+                Üniversitemiz
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <a href="*" className="navLinks">
-                  Akademik
-                </a>
+              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+                Akademik
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <a href="*" className="navLinks">
-                  Birimler
-                </a>
+              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+                Birimler
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <a href="*" className="navLinks">
-                  Öğrenci
-                </a>
+              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+                Öğrenci
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <a href="*" className="navLinks">
-                  E-Hizmetler
-                </a>
+              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+                E-Hizmetler
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <a href="*" className="navLinks">
-                  Uluslararası
-                </a>
+              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+                Uluslararası
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <a href="*" className="navLinks">
-                  Hızlı Erişim
-                </a>
+              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+                Hızlı Erişim
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>
-                <a href="*" className="navLinks">
-                  İletişim
-                </a>
+              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+                İletişim
               </NavLink>
             </NavItem>
           </Nav>

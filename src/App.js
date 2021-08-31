@@ -6,6 +6,7 @@ import Notice from "./Components/AllNotice";
 import Events from "./Components/AllEvents";
 import News from "./Components/AllNews";
 import Admin from "./Components/Admin/AdminLogin";
+import Dashboard from "./Components/Admin/AdminDashboard";
 
 class App extends Component {
   componentDidMount() {}
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path="/events" component={Events} />
           <Route path="/news" component={News} />
           <Route path="/admin" component={Admin} />
+          <Route path="/adminDashboard" component={Dashboard} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
