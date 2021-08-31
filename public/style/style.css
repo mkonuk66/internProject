@@ -29,8 +29,8 @@ a {
   text-decoration: none;
 }
 
-.divSpace {
-  margin-top: 8rem;
+.pageDiv {
+  padding-top: 8rem;
 }
 
 /* ========================== Navbar Section ========================== */
@@ -48,10 +48,15 @@ a {
 #navLogo {
   width: 250px;
   margin-left: 20vh;
-  margin-right: 70vh;
+  margin-right: 20vh;
+}
+
+.navLinkBlock {
+  margin-right: 2vh;
 }
 
 .navLinks {
+  width: auto;
   display: inline-block;
   text-decoration: none;
   color: #fff;
@@ -82,14 +87,14 @@ a {
   background: rgb(168, 168, 168);
 }
 
-@media only screen and (max-width: 960px) and (min-width: 750px) {
+@media only screen and (max-width: 1025px) and (min-width: 750px) {
   #navLogo {
     width: 100%;
-    margin-left: 25%;
+    margin-left: 0%;
     margin-right: 0%;
   }
   .navLinkBlock {
-    margin-left: 20%;
+    margin-left: 0%;
   }
 }
 
@@ -480,19 +485,6 @@ footer hr {
   text-decoration: none;
 }
 
-.allNews {
-  text-align: center;
-  font-size: 35px;
-  padding: 2rem;
-  color: #000;
-  text-decoration: none;
-}
-
-.allNews:hover {
-  transition: 0.45s ease;
-  color: rgba(118, 7, 16);
-}
-
 .news {
   display: flex;
   flex-wrap: wrap;
@@ -610,11 +602,55 @@ footer hr {
   background-color: white;
 }
 
+.newsCardLink {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.newsCardLink:hover {
+  transition: 0.3s ease;
+  text-decoration: none;
+  color: rgba(118, 7, 16);
+}
+
+.allNews {
+  text-align: center;
+  width: 100%;
+  font-size: 35px;
+  display: flex;
+  margin: auto;
+  padding: auto;
+  color: #000;
+  text-decoration: none;
+}
+.allNewsCard {
+  text-align: center;
+  width: 100%;
+  font-size: 35px;
+  display: flex;
+  margin: 10rem;
+  padding: auto;
+  color: #000;
+  text-decoration: none;
+}
+
+.allNews:hover {
+  transition: 0.45s ease;
+  color: rgba(118, 7, 16);
+}
+
 @media (max-width: 960px) {
   .allNews {
     font-size: 0px;
     padding-top: 0rem;
     padding-bottom: 2rem;
+  }
+  .newsCardLink {
+    padding: 0rem;
   }
 }
 
@@ -635,4 +671,34 @@ footer hr {
   .newsCardSnippet {
     margin: 60px 0;
   }
+}
+
+/* */
+.login {
+  min-height: 100vh;
+}
+
+.bg-image {
+  background-image: url("https://i.ytimg.com/vi/BgTJj-ZZ13U/maxresdefault.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.login-heading {
+  font-weight: 300;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+#adminLoginButton {
+  color: rgba(118, 7, 16);
+  background-color: #fff;
+}
+#adminLoginButton:hover {
+  color: rgba(118, 7, 16);
+  background-color: #fff;
 }

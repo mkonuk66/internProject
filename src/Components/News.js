@@ -73,7 +73,7 @@ export default class News extends Component {
             </figure>
           </div>
         </div>
-        <a href="/news" className="allNews">
+        <a href="/news" className="newsCardLink">
           <h2>Daha Fazlası</h2>
         </a>
       </div>
