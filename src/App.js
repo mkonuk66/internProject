@@ -5,8 +5,13 @@ import NotFound from "./Components/NotFound";
 import Notice from "./Components/AllNotice";
 import Events from "./Components/AllEvents";
 import News from "./Components/AllNews";
-import Admin from "./Components/Admin/AdminLogin";
+import AdminLogin from "./Components/Admin/AdminLogin";
 import Dashboard from "./Components/Admin/AdminDashboard";
+import AdminSlider from "./Components/Admin/AdminSlider";
+import AdminNews from "./Components/Admin/AdminNews";
+import AdminNotices from "./Components/Admin/AdminNotice";
+import AdminEvents from "./Components/Admin/AdminEvents";
+import Admins from "./Components/Admin/Admin";
 
 class App extends Component {
   componentDidMount() {}
@@ -18,8 +23,13 @@ class App extends Component {
           <Route path="/notice" component={Notice} />
           <Route path="/events" component={Events} />
           <Route path="/news" component={News} />
-          <Route path="/admin" component={Admin} />
+          <Route path="/admin" component={AdminLogin} />
           <Route path="/adminDashboard" component={Dashboard} />
+          <Route path="/adminNotices" component={AdminNotices} />
+          <Route path="/adminEvents" component={AdminEvents} />
+          <Route path="/adminNews" component={AdminNews} />
+          <Route path="/adminSlider" component={AdminSlider} />
+          <Route path="/adminUsers" component={Admins} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>
