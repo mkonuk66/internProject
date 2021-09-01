@@ -3,11 +3,15 @@ import React, { Component } from "react";
 export default class AdminLogin extends Component {
   handleSubmit(e) {
     let currentUrl = "/admin";
-    const adminId = "mEmin";
+    const adminId = ["mEmin", "eKonuk", "mKonuk"];
     const adminPassword = "yobu";
     const id = document.getElementById("userName").value;
     const password = document.getElementById("userPassword").value;
-    if (adminId === id && adminPassword === password) {
+    const getId = adminId.map((id) => id);
+    if (
+      (getId[0] === id || getId[1] === id || getId[2] === id) &&
+      adminPassword === password
+    ) {
       localStorage.clear();
       window.open("/adminDashboard", "_self");
     } else {
@@ -41,6 +45,7 @@ export default class AdminLogin extends Component {
                           type="text"
                           className="form-control"
                           id="userName"
+                          required
                           placeholder="Lütfen kullanıcı adınızı giriniz"
                         />
                         <label>Kullanıcı Adı</label>
@@ -50,6 +55,7 @@ export default class AdminLogin extends Component {
                           type="password"
                           className="form-control"
                           id="userPassword"
+                          required
                           placeholder="Lütfen şifrenizi giriniz"
                         />
                         <label>Şifre</label>
