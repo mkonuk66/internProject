@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
@@ -36,9 +37,9 @@ export default class AdminNewEvents extends Component {
                 }}
               />
             </div>
-            <button type="submit" class="btn btn-danger mb-2 mt-5">
+            <Link to="/adminEvent" class="btn btn-warning mb-2 mt-5">
               Etkinlik Ekle
-            </button>
+            </Link>
           </div>
         </form>
       </div>

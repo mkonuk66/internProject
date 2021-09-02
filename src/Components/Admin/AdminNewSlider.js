@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class AdminNewSlider extends Component {
   render() {
@@ -13,9 +14,9 @@ export default class AdminNewSlider extends Component {
             <br />
             <input type="file" className="form-control-file" id="sliderImage" />
           </div>
-          <button type="submit" class="btn btn-danger mb-2 mt-5">
+          <Link to="/adminSlider" class="btn btn-warning mb-2 mt-5">
             Slider Ekle
-          </button>
+          </Link>
         </form>
       </div>
     );
