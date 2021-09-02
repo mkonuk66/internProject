@@ -12,29 +12,38 @@ export default class AdminDashboard extends Component {
         </div>
         <br />
         <div className="container d-flex justify-content-center align-items-center flex-column ">
-          <Link to="/adminUser" className="btn btn-danger col-md-2 mt-3 btn-lg">
+          <Link
+            to="/adminUser"
+            className="btn btn-warning col-md-2 mt-3 btn-lg"
+          >
             Yöneticiler
           </Link>
           <Link
             to="/adminEvent"
-            className="btn btn-danger col-md-2 mt-3 btn-lg"
+            className="btn btn-warning col-md-2 mt-3 btn-lg"
           >
             Etkinlinkler
           </Link>
-          <Link to="/adminNews" className="btn btn-danger col-md-2 mt-3 btn-lg">
+          <Link
+            to="/adminNews"
+            className="btn btn-warning col-md-2 mt-3 btn-lg"
+          >
             Haberler
           </Link>
           <Link
             to="/adminNotice"
-            className="btn btn-danger col-md-2 mt-3 btn-lg"
+            className="btn btn-warning col-md-2 mt-3 btn-lg"
           >
             Duyurular
           </Link>
           <Link
             to="/adminSlider"
-            className="btn btn-danger col-md-2 mt-3 btn-lg"
+            className="btn btn-warning col-md-2 mt-3 btn-lg"
           >
             Slider
+          </Link>
+          <Link to="/" className="btn btn-danger col-md-2 mt-3 btn-lg">
+            Çıkış Yap
           </Link>
         </div>
       </div>

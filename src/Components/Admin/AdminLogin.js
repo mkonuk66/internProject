@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 export default class AdminLogin extends Component {
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     let currentUrl = "/admin";
     const adminId = ["mEmin", "eKonuk", "mKonuk"];
     const adminPassword = "yobu";
@@ -13,12 +13,13 @@ export default class AdminLogin extends Component {
       adminPassword === password
     ) {
       localStorage.clear();
+      // isAuthenticated = true;
       window.open("/adminDashboard", "_self");
     } else {
       alert("Kullanıcı adı veya şifre hatalı!");
       return currentUrl;
     }
-  }
+  };
   render() {
     return (
       <div className="container-fluid ps-md-0 min-vh-100">

@@ -10,7 +10,7 @@ export default class Admin extends Component {
         </h2>
         <Link
           to="/adminNewUser"
-          className="container d-flex justify-content-center align-items-center btn btn-danger col-md-2 mb-5 btn-lg"
+          className="container d-flex justify-content-center align-items-center btn btn-warning col-md-2 mb-5 btn-lg"
         >
           Yönetici Ekle
         </Link>

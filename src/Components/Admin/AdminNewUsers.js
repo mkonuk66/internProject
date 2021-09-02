@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class AdminNewUsers extends Component {
   render() {
@@ -26,9 +27,9 @@ export default class AdminNewUsers extends Component {
               placeholder="Etkinlik adını giriniz"
             />
           </div>
-          <button type="submit" class="btn btn-danger mb-2 mt-5">
+          <Link to="/adminUser" class="btn btn-warning mb-2 mt-5">
             Yönetici Ekle
-          </button>
+          </Link>
         </form>
       </div>
     );
