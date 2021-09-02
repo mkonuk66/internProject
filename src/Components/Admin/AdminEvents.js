@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class AdminEvents extends Component {
   render() {
@@ -7,6 +8,12 @@ export default class AdminEvents extends Component {
         <h2 className="d-flex justify-content-center display-2 mb-5">
           Etkinlikler Sayfası
         </h2>
+        <Link
+          to="/adminnewEvent"
+          className="container d-flex justify-content-center align-items-center btn btn-danger col-md-2 mb-5 btn-lg"
+        >
+          Etkinlik Ekle
+        </Link>
         <table className="table">
           <caption>Etkinlikler Listesi</caption>
           <thead>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Admin extends Component {
   render() {
@@ -7,6 +8,12 @@ export default class Admin extends Component {
         <h2 className="d-flex justify-content-center display-2 mb-5">
           Yönetici Sayfası
         </h2>
+        <Link
+          to="/adminNewUser"
+          className="container d-flex justify-content-center align-items-center btn btn-danger col-md-2 mb-5 btn-lg"
+        >
+          Yönetici Ekle
+        </Link>
         <table className="table">
           <caption>Yöneticiler Listesi</caption>
           <thead>
