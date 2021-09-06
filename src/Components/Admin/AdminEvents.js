@@ -9,7 +9,7 @@ export default class AdminEvents extends Component {
           Etkinlikler Sayfası
         </h2>
         <Link
-          to="/adminnewEvent"
+          to="/adminEventNew"
           className="container d-flex justify-content-center align-items-center btn btn-warning col-md-2 mb-5 btn-lg"
         >
           Etkinlik Ekle

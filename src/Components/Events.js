@@ -65,7 +65,7 @@ export default class Events extends Component {
             <td></td>
             <td></td>
             <td>
-              <a href="/events"> Daha fazlası </a>
+              <a href="/event"> Daha fazlası </a>
             </td>
           </tr>
         </table>

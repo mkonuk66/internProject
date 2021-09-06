@@ -9,7 +9,7 @@ export default class Admin extends Component {
           Yönetici Sayfası
         </h2>
         <Link
-          to="/adminNewUser"
+          to="/adminUserNew"
           className="container d-flex justify-content-center align-items-center btn btn-warning col-md-2 mb-5 btn-lg"
         >
           Yönetici Ekle
