@@ -52,7 +52,7 @@ export default class Routes extends Component {
             <Route path="/admin" component={AdminLogin} />
             <PrivateRoute path="/adminDashboard" component={Dashboard} />
             <PrivateRoute path="/adminNotice" component={AdminNotices} />
-            <PrivateRoute path="/admin/#event" component={AdminEvents} />
+            <PrivateRoute path="/adminEvent" component={AdminEvents} />
             <PrivateRoute path="/adminNews" component={AdminNews} />
             <PrivateRoute path="/adminSlider" component={AdminSlider} />
             <PrivateRoute path="/adminUser" component={Admins} />

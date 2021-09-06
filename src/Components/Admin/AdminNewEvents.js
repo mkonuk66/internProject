@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
@@ -7,9 +6,17 @@ export default class AdminNewEvents extends Component {
   render() {
     return (
       <div className="container mt-5">
-        <h2 className="d-flex justify-content-center display-2 mb-5">
-          Etkinlikler Sayfası
-        </h2>
+        <div className="container d-flex justify-content-center align-items-center column mb-5">
+          <a
+            href="/adminEvent"
+            className="btn btn-warning  btn-lg m-5 mt-0 mb-0"
+          >
+            Geri Dön
+          </a>{" "}
+          <h2 className="d-flex justify-content-center display-2 m-5 mt-0 mb-0">
+            Etkinlikler Sayfası
+          </h2>
+        </div>
         <form>
           <div className="form-group">
             <label className=" mb-1">Etkinlik Adı</label>
@@ -37,9 +44,9 @@ export default class AdminNewEvents extends Component {
                 }}
               />
             </div>
-            <Link to="/adminEvent" class="btn btn-warning mb-2 mt-5">
+            <a href="/adminEvent" class="btn btn-warning mb-2 mt-5">
               Etkinlik Ekle
-            </Link>
+            </a>
           </div>
         </form>
       </div>

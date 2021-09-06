@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 export default class AdminSlider extends Component {
   render() {
@@ -8,12 +7,20 @@ export default class AdminSlider extends Component {
         <h2 className="d-flex justify-content-center display-2 mb-5">
           Slider Sayfası
         </h2>
-        <Link
-          to="/adminSliderNew"
-          className="container d-flex justify-content-center align-items-center btn btn-warning col-md-2 mb-5 btn-lg"
-        >
-          Slider Ekle
-        </Link>
+        <div className="container d-flex justify-content-center align-items-center column mb-5">
+          <a
+            href="/adminDashboard"
+            className="  btn btn-warning  btn-lg p-2 m-2 "
+          >
+            Geri Dön
+          </a>
+          <a
+            href="/adminSliderNew"
+            className=" btn btn-warning  btn-lg p-2 m-2"
+          >
+            Slider Ekle
+          </a>
+        </div>
         <table className="table">
           <caption>Slider Listesi</caption>
           <thead>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default class AdminNewUsers extends Component {
@@ -17,9 +16,17 @@ export default class AdminNewUsers extends Component {
   render() {
     return (
       <div className="container mt-5">
-        <h2 className="d-flex justify-content-center display-2 mb-5">
-          Yönetici Sayfası
-        </h2>
+        <div className="container d-flex justify-content-center align-items-center column mb-5">
+          <a
+            href="/adminUser"
+            className="  btn btn-warning  btn-lg m-5 mt-0 mb-0"
+          >
+            Geri Dön
+          </a>{" "}
+          <h2 className="d-flex justify-content-center display-2 m-5 mt-0 mb-0">
+            Yönetici Sayfası
+          </h2>
+        </div>
         <form>
           <div className="form-group mb-3">
             <label className="mb-1">Yönetici Kullanıcı Adı</label>
