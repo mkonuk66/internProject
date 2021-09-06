@@ -9,7 +9,7 @@ export default class AdminNotice extends Component {
           Duyurular Sayfası
         </h2>
         <Link
-          to="/adminnewNotice"
+          to="/adminNoticeNew"
           className="container d-flex justify-content-center align-items-center btn btn-warning col-md-2 mb-5 btn-lg"
         >
           Duyuru Ekle

@@ -26,7 +26,7 @@ import AdminNewUsers from "./Components/Admin/AdminNewUsers";
 
 const PrivateRoute = (props) => {
   const location = useLocation();
-  const isAuthenticated = false;
+  const isAuthenticated = true;
   return isAuthenticated ? (
     <Route {...props} />
   ) : (
@@ -52,15 +52,15 @@ export default class Routes extends Component {
             <Route path="/admin" component={AdminLogin} />
             <PrivateRoute path="/adminDashboard" component={Dashboard} />
             <PrivateRoute path="/adminNotice" component={AdminNotices} />
-            <PrivateRoute path="/adminEvent" component={AdminEvents} />
+            <PrivateRoute path="/admin/#event" component={AdminEvents} />
             <PrivateRoute path="/adminNews" component={AdminNews} />
             <PrivateRoute path="/adminSlider" component={AdminSlider} />
             <PrivateRoute path="/adminUser" component={Admins} />
-            <PrivateRoute path="/adminNewNotice" component={AdminNewNotices} />
-            <PrivateRoute path="/adminNewEvent" component={AdminNewEvents} />
-            <PrivateRoute path="/adminNewNews" component={AdminNewNews} />
-            <PrivateRoute path="/adminNewSlider" component={AdminNewSlider} />
-            <PrivateRoute path="/adminNewUser" component={AdminNewUsers} />
+            <PrivateRoute path="/adminNoticeNew" component={AdminNewNotices} />
+            <PrivateRoute path="/adminEventNew" component={AdminNewEvents} />
+            <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
+            <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />
+            <PrivateRoute path="/adminUserNew" component={AdminNewUsers} />
             <Route path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>

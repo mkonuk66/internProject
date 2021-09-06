@@ -9,7 +9,7 @@ export default class AdminSlider extends Component {
           Slider Sayfası
         </h2>
         <Link
-          to="/adminnewSlider"
+          to="/adminSliderNew"
           className="container d-flex justify-content-center align-items-center btn btn-warning col-md-2 mb-5 btn-lg"
         >
           Slider Ekle

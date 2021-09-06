@@ -6,6 +6,10 @@ import {
   Nav,
   NavItem,
   NavLink,
+  DropdownToggle,
+  UncontrolledDropdown,
+  DropdownItem,
+  DropdownMenu,
 } from "reactstrap";
 
 const NavBar = (props) => {
@@ -39,7 +43,10 @@ const NavBar = (props) => {
         </div>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar className="navLinkBlock">
-          <Nav className="m-auto" navbar>
+          <Nav
+            className="m-auto d-flex justify-content-center align-items-center"
+            navbar
+          >
             <NavItem>
               <NavLink href="/" className="navLinks" style={{ color: "#fff" }}>
                 Ana Sayfa
@@ -51,13 +58,37 @@ const NavBar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
-                Akademik
+              <NavLink href="*" className="navLinks">
+                {" "}
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret style={{ color: "#fff" }}>
+                    Akademik
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem href="*">Mühendislik Fakültesi</DropdownItem>
+                    <DropdownItem href="*">Tıp Fakültesi</DropdownItem>
+                    <DropdownItem href="*">İlahiyat Fakültesi</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>{" "}
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
-                Birimler
+              <NavLink href="*" className="navLinks">
+                {" "}
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret style={{ color: "#fff" }}>
+                    Birimler
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem href="*">
+                      Bilgi İşlem Daire Başkanlığı
+                    </DropdownItem>
+                    <DropdownItem href="*">
+                      Öğrenci İşleri Daire Başkanlığı
+                    </DropdownItem>
+                    <DropdownItem href="*">Kariyer Merkezi</DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>{" "}
               </NavLink>
             </NavItem>
             <NavItem>
