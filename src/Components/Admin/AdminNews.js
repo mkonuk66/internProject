@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 export default class AdminNews extends Component {
   render() {
@@ -8,12 +7,17 @@ export default class AdminNews extends Component {
         <h2 className="d-flex justify-content-center display-2 mb-5">
           Haberler Sayfası
         </h2>
-        <Link
-          to="/adminNewsNew"
-          className="container d-flex justify-content-center align-items-center btn btn-warning col-md-2 mb-5 btn-lg"
-        >
-          Haber Ekle
-        </Link>
+        <div className="container d-flex justify-content-center align-items-center column mb-5">
+          <a
+            href="/adminDashboard"
+            className="  btn btn-warning  btn-lg p-2 m-2 "
+          >
+            Geri Dön
+          </a>
+          <a href="/adminNewsNew" className=" btn btn-warning  btn-lg p-2 m-2">
+            Haber Ekle
+          </a>
+        </div>
         <table className="table">
           <caption>Haberler Listesi</caption>
           <thead>
