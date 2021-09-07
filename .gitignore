@@ -9,7 +9,9 @@
 /coverage
 
 # backend
-/backend
+/backend/config/env/config.env
+/backend/node_modules
+/backend/package-lock.json
 
 # production
 /build

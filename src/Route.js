@@ -23,6 +23,7 @@ import AdminNewNews from "./Components/Admin/AdminNewNews";
 import AdminNewNotices from "./Components/Admin/AdminNewNotice";
 import AdminNewEvents from "./Components/Admin/AdminNewEvents";
 import AdminNewUsers from "./Components/Admin/AdminNewUsers";
+import AdminEditUser from "./Components/Admin/AdminEditUser";
 
 const PrivateRoute = (props) => {
   const location = useLocation();
@@ -61,6 +62,7 @@ export default class Routes extends Component {
             <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
             <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />
             <PrivateRoute path="/adminUserNew" component={AdminNewUsers} />
+            <PrivateRoute path="/adminUserEdit" component={AdminEditUser} />
             <Route path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>
