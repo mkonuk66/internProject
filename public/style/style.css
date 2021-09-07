@@ -676,4 +676,11 @@ footer hr {
   }
 }
 
-/* ========================= Admin Login Section ========================= */
+/* ========================= Admin Panel Section ========================= */
+.adminIcon {
+  color: orange;
+}
+.adminIcon:hover {
+  cursor: pointer;
+  color: #000;
+}
