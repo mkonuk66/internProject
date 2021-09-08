@@ -37,15 +37,15 @@ router.route("/:id").delete((req, res) => {
 router.route("/updateUser/:id").post((req, res) => {
   User.findById(req.params.id)
     .then((users) => {
-      exercise.username = req.body.username;
-      exercise.password = req.body.password;
+      users.username = req.body.username;
+      users.password = req.body.password;
 
       users
         .save()
         .then(() => res.json("User updated!"))
-        .catch((err) => res.status(400).json("Errory: " + err));
+        .catch((err) => res.status(400).json("Error: " + err));
     })
-    .catch((err) => res.status(400).json("Errorx: " + err));
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 module.exports = router;

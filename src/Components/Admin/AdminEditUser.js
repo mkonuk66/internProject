@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+const getUserId = window.location.pathname.split("/");
+const userId = getUserId[2];
+
 export default class EditExercise extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +19,7 @@ export default class EditExercise extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/admin/users/" + this.props.match.params.id)
+      .get("http://localhost:5000/admin/users/" + userId)
       .then((response) => {
         this.setState({
           username: response.data.username,
@@ -55,55 +58,62 @@ export default class EditExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const user = {
-      username: this.state.username,
-      password: this.state.password,
+    const user1 = {
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
     };
 
-    console.log(user);
-
     axios
-      .post(
-        "http://localhost:5000/admin/users/updateUser/" +
-          this.props.match.params.id,
-        user
-      )
+      .post("http://localhost:5000/admin/users/updateUser/" + userId, user1)
       .then((res) => console.log(res.data));
 
     window.location = "/adminUser";
+    alert("Kullanıcı başarıyla güncellendi");
   }
 
   render() {
-    console.log(this.props.match.params.id);
     return (
-      <div>
-        <h3>Edit Exercise Log</h3>
+      <div className="container text-center mt-5">
+        <div className="d-flex justify-content-center align-items-center column mb-5">
+          <a
+            href="/adminUser"
+            className="  btn btn-warning  btn-lg m-5 mt-0 mb-0"
+          >
+            Geri Dön
+          </a>{" "}
+          <h2 className="d-flex justify-content-center display-2 m-5 mt-0 mb-0">
+            Yönetici Sayfası
+          </h2>
+        </div>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group">
-            <label>Username: </label>
+          <div className="form-group mt-3">
+            <label>Yönetici Kullanıcı Adı: </label>
             <input
               type="text"
               required
               className="form-control"
-              placeholder={this.state.username}
+              id="username"
+              value={this.state.username}
               onChange={this.onChangeUsername}
             />
           </div>
-          <div className="form-group">
-            <label>Duration (in minutes): </label>
+          <div className="form-group mt-3 text-center">
+            <label>Yönetici Şifre: </label>
             <input
               type="text"
+              required
               className="form-control"
-              placeholder={this.state.password + "a"}
+              id="password"
+              placeholder={this.state.password}
               onChange={this.onChangePassword}
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group mt-4">
             <input
               type="submit"
-              value="Edit Exercise Log"
-              className="btn btn-primary"
+              value="Güncelle"
+              className="btn btn-warning  btn-lg"
             />
           </div>
         </form>

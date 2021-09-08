@@ -5,7 +5,12 @@ export default class AdminDashboard extends Component {
     return (
       <div className="mt-5 ">
         <div className="container d-flex justify-content-center align-items-center  flex-column ">
-          <h1 className="page-header  column">Admin Paneline Hoşgeldiniz !</h1>
+          <h1
+            className="page-header column text-center"
+            style={{ fontSize: "2rem" }}
+          >
+            Admin Paneline Hoşgeldiniz !
+          </h1>
 
           <p className="mt-3">Yapmak istediğiniz işlemi seçiniz.</p>
         </div>

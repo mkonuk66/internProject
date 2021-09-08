@@ -27,14 +27,14 @@ export default class AdminNewUsers extends Component {
             Yönetici Sayfası
           </h2>
         </div>
-        <form>
+        <form className="text-center">
           <div className="form-group mb-3">
             <label className="mb-1">Yönetici Kullanıcı Adı</label>
             <input
               type="email"
               className="form-control"
               id="username"
-              placeholder="Etkinlik adını giriniz"
+              placeholder="Yönetici kullanıcı adını giriniz"
             />
           </div>
           <div className="form-group">
@@ -43,7 +43,7 @@ export default class AdminNewUsers extends Component {
               type="email"
               className="form-control"
               id="password"
-              placeholder="Etkinlik adını giriniz"
+              placeholder="Yönetici şifre giriniz"
             />
           </div>
           <a
