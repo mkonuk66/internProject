@@ -1,24 +1,46 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class AdminLogin extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { users: [] };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/admin/users/")
+      .then((response) => {
+        this.setState({ users: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   handleSubmit = (e) => {
-    let currentUrl = "/admin";
-    const adminId = ["mEmin", "eKonuk", "mKonuk"];
-    const adminPassword = "yobu";
-    const id = document.getElementById("userName").value;
-    const password = document.getElementById("userPassword").value;
-    const getId = adminId.map((id) => id);
-    if (
-      (getId[0] === id || getId[1] === id || getId[2] === id) &&
-      adminPassword === password
-    ) {
+    let userController = false;
+
+    this.state.users.map((currentusers) => {
+      if (
+        currentusers.username === document.getElementById("userName").value &&
+        currentusers.password === document.getElementById("userPassword").value
+      ) {
+        userController = true;
+      }
+    });
+
+    if (userController) {
       localStorage.clear();
       window.open("/adminDashboard", "_self");
+      alert("Giriş başarılı!");
     } else {
       alert("Kullanıcı adı veya şifre hatalı!");
-      return currentUrl;
+      localStorage.clear();
+      window.open("/admin", "_self");
     }
   };
+
   render() {
     return (
       <div className="container-fluid ps-md-0 min-vh-100">
