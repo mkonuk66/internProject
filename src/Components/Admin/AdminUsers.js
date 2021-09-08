@@ -17,6 +17,7 @@ const Users = (props) => (
       <a
         onClick={() => {
           props.deleteUser(props.users._id);
+          alert(props.users.username + " adlı yönetici silindi.");
         }}
       >
         {" "}
@@ -68,16 +69,19 @@ export default class UserList extends Component {
 
   render() {
     return (
-      <div className="container mt-5">
-        <h2 className="d-flex justify-content-center display-2 mb-5">
+      <div className="container mt-5 ">
+        <h2 className="d-flex justify-content-center display-2 m-5 mt-0 mb-0">
           Yönetici Sayfası
         </h2>
-        <Link
-          to="/adminUserNew"
-          className="container d-flex justify-content-center align-items-center btn btn-warning col-md-2 mb-5 btn-lg"
-        >
-          Yönetici Ekle
-        </Link>
+        <div className="container d-flex justify-content-center align-items-center mt-3 mb-4">
+          <a href="/adminDashboard" className="btn btn-warning  btn-lg ">
+            Geri Dön
+          </a>{" "}
+          <Link to="/adminUserNew" className="btn btn-warning  btn-lg m-3">
+            Yönetici Ekle
+          </Link>
+        </div>
+
         <table className="table">
           <caption>Yöneticiler Listesi</caption>
           <thead>

@@ -4,10 +4,10 @@ export default class AdminEvents extends Component {
   render() {
     return (
       <div className="container mt-5">
-        <h2 className="d-flex justify-content-center display-2 mb-5">
+        <h2 className="d-flex justify-content-center display-2 mb-3">
           Etkinlikler Sayfası
         </h2>
-        <div className="container d-flex justify-content-center align-items-center column mb-5">
+        <div className="container d-flex justify-content-center align-items-center column mb-4">
           <a
             href="/adminDashboard"
             className="  btn btn-warning  btn-lg p-2 m-2 "
