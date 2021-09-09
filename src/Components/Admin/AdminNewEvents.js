@@ -1,8 +1,29 @@
 import React, { Component } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import axios from "axios";
+
+let ckData = "";
 
 export default class AdminNewEvents extends Component {
+  handleSubmit(data) {
+    const newEvent = {
+      title: document.getElementById("eventTitle").value,
+      createdAt: document.getElementById("eventDate").value,
+      eventImage: document.getElementById("eventImage").value,
+      content: ckData,
+    };
+    console.log(newEvent);
+    axios
+      .post("http://localhost:5000/admin/events/newEvent", newEvent)
+      .then(
+        (res) => localStorage.clear(),
+        window.open("/adminEvent", "_self"),
+        alert("Etkinlik Başarıyla Eklenid")
+      )
+      .catch((err) => alert("Hata: " + err));
+  }
+
   render() {
     return (
       <div className="container mt-5">
@@ -27,6 +48,15 @@ export default class AdminNewEvents extends Component {
               placeholder="Etkinlik adını giriniz"
             />
           </div>
+          <div className="form-group">
+            <label className=" mb-1">Etkinlik Tarih</label>
+            <input
+              type="date"
+              className="form-control"
+              id="eventDate"
+              placeholder="Etkinlik adını giriniz"
+            />
+          </div>
           <div className="form-group mt-4">
             <label className=" mb-1">Etkinlik Fotoğraf</label>
             <br />
@@ -38,13 +68,15 @@ export default class AdminNewEvents extends Component {
               <CKEditor
                 editor={ClassicEditor}
                 onBlur={(event, editor) => {
-                  const data = editor.getData();
-                  const htmlData = JSON.stringify(data);
-                  console.log(htmlData);
+                  ckData = JSON.stringify(editor.getData());
                 }}
               />
             </div>
-            <a href="/adminEvent" class="btn btn-warning mb-2 mt-5">
+            <a
+              type="submit "
+              className="btn btn-warning mb-2 mt-5"
+              onClick={this.handleSubmit}
+            >
               Etkinlik Ekle
             </a>
           </div>

@@ -21,7 +21,7 @@ export default class AdminLogin extends Component {
   handleSubmit = (e) => {
     let userController = false;
 
-    this.state.users.map((currentusers) => {
+    this.state.users.forEach((currentusers) => {
       if (
         currentusers.username === document.getElementById("userName").value &&
         currentusers.password === document.getElementById("userPassword").value
