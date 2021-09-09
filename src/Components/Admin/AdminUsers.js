@@ -14,7 +14,7 @@ const Users = (props) => (
       </a>
     </td>
     <td>
-      <a
+      <p
         onClick={() => {
           props.deleteUser(props.users._id);
           alert(props.users.username + " adlı yönetici silindi.");
@@ -22,7 +22,7 @@ const Users = (props) => (
       >
         {" "}
         <i className="fa fa-trash fa-2x adminIcon"></i>
-      </a>
+      </p>
     </td>
   </tr>
 );
