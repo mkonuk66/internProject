@@ -48,11 +48,12 @@ a {
 #navLogo {
   width: 250px;
   margin-left: 20vh;
-  margin-right: 20vh;
+  margin-right: 5vh;
 }
 
 .navLinkBlock {
-  margin-right: 2vh;
+  margin-left: 0vh;
+  margin-right: 20vh;
 }
 
 .navLinks {
@@ -90,17 +91,32 @@ a {
 @media only screen and (max-width: 1025px) and (min-width: 750px) {
   #navLogo {
     width: 100%;
-    margin-left: 0%;
-    margin-right: 0%;
+    margin-left: 0vh;
+    margin-right: 0vh;
+  }
+  .navLinks {
+    width: 100%;
   }
   .navLinkBlock {
     margin-left: 0%;
+    margin-right: 0vh;
   }
 }
 
 @media (max-width: 750px) {
   .navbar {
     background-color: rgba(118, 7, 16);
+  }
+
+  #navLogo {
+    width: 250px;
+    margin-left: 0vh;
+    margin-right: 0vh;
+  }
+
+  .navLinkBlock {
+    margin-left: 0vh;
+    margin-right: 0vh;
   }
 
   #navLogo {
@@ -148,11 +164,21 @@ a {
   object-fit: cover;
   object-position: bottom;
 }
-@media (max-width: 960px) {
+@media only screen and (max-width: 1025px) and (min-width: 750px) {
+  .slider {
+    width: 100%;
+    height: 40vh;
+  }
   #sliderImages {
-    height: 50vh;
-    object-fit: cover;
-    object-position: bottom;
+    height: 40vh;
+  }
+}
+@media (max-width: 750px) {
+  .slider {
+    height: 70vh;
+  }
+  #sliderImages {
+    height: 70vh;
   }
 }
 

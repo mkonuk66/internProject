@@ -1,6 +1,73 @@
 import React, { Component } from "react";
+import axios from "axios";
+
+const Event = (props) => (
+  <tr>
+    <th scope="row">1</th>
+    <td>{props.event._id}</td>
+    <td>{props.event.title}</td>
+    <td>{props.event.createdAt}</td>
+    <td>
+      <a href={"/adminEditEvent/" + props.event._id}>
+        {" "}
+        <i className="fa fa-pencil fa-2x adminIcon"></i>
+      </a>
+    </td>
+    <td>
+      <p
+        onClick={() => {
+          props.deleteEvent(props.event._id);
+          alert(props.event.title + " başlıklı etkinlik silindi.");
+        }}
+      >
+        {" "}
+        <i className="fa fa-trash fa-2x adminIcon"></i>
+      </p>
+    </td>
+  </tr>
+);
 
 export default class AdminEvents extends Component {
+  constructor(props) {
+    super(props);
+    this.deleteEvent = this.deleteEvent.bind(this);
+    this.state = { event: [] };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/admin/events/")
+      .then((response) => {
+        this.setState({ event: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  deleteEvent(id) {
+    axios
+      .delete("http://localhost:5000/admin/events/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
+
+    this.setState({
+      event: this.state.event.filter((el) => el._id !== id),
+    });
+  }
+
+  eventList() {
+    return this.state.event.map((currentevent) => {
+      return (
+        <Event
+          event={currentevent}
+          key={currentevent._id}
+          deleteEvent={this.deleteEvent}
+        />
+      );
+    });
+  }
   render() {
     return (
       <div className="container mt-5">
@@ -23,63 +90,14 @@ export default class AdminEvents extends Component {
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Etkinlik Id</th>
               <th scope="col">Etkinlik Başlık</th>
               <th scope="col">Etkinlik Tarih</th>
-              <th scope="col">Etkinlik İçerik</th>
               <th scope="col">Güncelle</th>
               <th scope="col">Sil</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Etkinlik 1</td>
-              <td>1.09.2021</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Etkinlik 2</td>
-              <td>1.09.2021</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>{" "}
-            <tr>
-              <th scope="row">3</th>
-              <td>Etkinlik 3</td>
-              <td>1.09.2021</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>{" "}
-            <tr>
-              <th scope="row">4</th>
-              <td>Etkinlik 4</td>
-              <td>1.09.2021</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-          </tbody>
+          <tbody>{this.eventList()}</tbody>
         </table>
       </div>
     );

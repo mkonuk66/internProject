@@ -5,7 +5,7 @@ import axios from "axios";
 
 let ckData = "";
 
-export default class AdminNewEvents extends Component {
+export default class AdminEditEvent extends Component {
   handleSubmit(data) {
     const newEvent = {
       title: document.getElementById("eventTitle").value,
@@ -19,7 +19,7 @@ export default class AdminNewEvents extends Component {
       .then(
         (res) => localStorage.clear(),
         window.open("/adminEvent", "_self"),
-        alert("Etkinlik Başarıyla Eklendi.")
+        alert("Etkinlik Başarıyla Eklenid")
       )
       .catch((err) => alert("Hata: " + err));
   }
