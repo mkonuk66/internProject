@@ -53,66 +53,98 @@ const NavBar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+              <NavLink
+                href="/comingSoon"
+                className="navLinks"
+                style={{ color: "#fff" }}
+              >
                 Üniversitemiz
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks">
+              <NavLink href="/comingSoon" className="navLinks">
                 {" "}
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret style={{ color: "#fff" }}>
                     Akademik
                   </DropdownToggle>
                   <DropdownMenu right>
-                    <DropdownItem href="*">Mühendislik Fakültesi</DropdownItem>
-                    <DropdownItem href="*">Tıp Fakültesi</DropdownItem>
-                    <DropdownItem href="*">İlahiyat Fakültesi</DropdownItem>
+                    <DropdownItem href="/comingSoon">
+                      Mühendislik Fakültesi
+                    </DropdownItem>
+                    <DropdownItem href="/comingSoon">
+                      Tıp Fakültesi
+                    </DropdownItem>
+                    <DropdownItem href="/comingSoon">
+                      İlahiyat Fakültesi
+                    </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>{" "}
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks">
+              <NavLink href="/comingSoon" className="navLinks">
                 {" "}
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret style={{ color: "#fff" }}>
                     Birimler
                   </DropdownToggle>
                   <DropdownMenu right>
-                    <DropdownItem href="*">
+                    <DropdownItem href="/comingSoon">
                       Bilgi İşlem Daire Başkanlığı
                     </DropdownItem>
-                    <DropdownItem href="*">
+                    <DropdownItem href="/comingSoon">
                       Öğrenci İşleri Daire Başkanlığı
                     </DropdownItem>
-                    <DropdownItem href="*">Kariyer Merkezi</DropdownItem>
+                    <DropdownItem href="/comingSoon">
+                      Kariyer Merkezi
+                    </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>{" "}
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+              <NavLink
+                href="/comingSoon"
+                className="navLinks"
+                style={{ color: "#fff" }}
+              >
                 Öğrenci
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+              <NavLink
+                href="/comingSoon"
+                className="navLinks"
+                style={{ color: "#fff" }}
+              >
                 E-Hizmetler
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+              <NavLink
+                href="/comingSoon"
+                className="navLinks"
+                style={{ color: "#fff" }}
+              >
                 Uluslararası
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+              <NavLink
+                href="/comingSoon"
+                className="navLinks"
+                style={{ color: "#fff" }}
+              >
                 Hızlı Erişim
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="*" className="navLinks" style={{ color: "#fff" }}>
+              <NavLink
+                href="/contact"
+                className="navLinks"
+                style={{ color: "#fff" }}
+              >
                 İletişim
               </NavLink>
             </NavItem>

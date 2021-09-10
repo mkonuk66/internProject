@@ -39,32 +39,23 @@ export default class EditExercise extends Component {
 
   onChangePassword(e) {
     this.setState({
-      description: e.target.value,
-    });
-  }
-
-  onChangeDuration(e) {
-    this.setState({
-      duration: e.target.value,
-    });
-  }
-
-  onChangeDate(date) {
-    this.setState({
-      date: date,
+      password: e.target.value,
     });
   }
 
   onSubmit(e) {
     e.preventDefault();
 
-    const user1 = {
+    const changeUser = {
       username: document.getElementById("username").value,
       password: document.getElementById("password").value,
     };
 
     axios
-      .post("http://localhost:5000/admin/users/updateUser/" + userId, user1)
+      .post(
+        "http://localhost:5000/admin/users/updateUser/" + userId,
+        changeUser
+      )
       .then((res) => console.log(res.data));
 
     window.location = "/adminUser";
@@ -90,8 +81,8 @@ export default class EditExercise extends Component {
             <label>Yönetici Kullanıcı Adı: </label>
             <input
               type="text"
-              required
               className="form-control"
+              required
               id="username"
               value={this.state.username}
               onChange={this.onChangeUsername}
@@ -104,7 +95,7 @@ export default class EditExercise extends Component {
               required
               className="form-control"
               id="password"
-              placeholder={this.state.password}
+              value={this.state.password}
               onChange={this.onChangePassword}
             />
           </div>
