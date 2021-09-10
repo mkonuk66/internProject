@@ -11,6 +11,8 @@ import NotFound from "./Components/NotFound";
 import Notice from "./Components/AllNotice";
 import Events from "./Components/AllEvents";
 import News from "./Components/AllNews";
+import Coming from "./Components/ComingSoon";
+import Contact from "./Components/Contact";
 import AdminLogin from "./Components/Admin/AdminLogin";
 import Dashboard from "./Components/Admin/AdminDashboard";
 import AdminSlider from "./Components/Admin/AdminSlider";
@@ -26,9 +28,10 @@ import AdminNewUsers from "./Components/Admin/AdminNewUsers";
 import AdminEditUser from "./Components/Admin/AdminEditUser";
 import AdminEditEvent from "./Components/Admin/AdminEditEvent";
 
+let isAuthenticated = false;
 const PrivateRoute = (props) => {
   const location = useLocation();
-  const isAuthenticated = true;
+
   return isAuthenticated ? (
     <Route {...props} />
   ) : (
@@ -52,6 +55,8 @@ export default class Routes extends Component {
             <Route path="/event" component={Events} />
             <Route path="/news" component={News} />
             <Route path="/admin" component={AdminLogin} />
+            <Route path="/comingSoon" component={Coming} />
+            <Route path="/contact" component={Contact} />
             <PrivateRoute path="/adminDashboard" component={Dashboard} />
             <PrivateRoute path="/adminNotice" component={AdminNotices} />
             <PrivateRoute path="/adminEvent" component={AdminEvents} />

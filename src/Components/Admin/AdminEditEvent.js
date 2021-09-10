@@ -72,13 +72,13 @@ export default class AdminEditEvent extends Component {
                 }}
               />
             </div>
-            <a
+            <p
               type="submit "
               className="btn btn-warning mb-2 mt-5"
               onClick={this.handleSubmit}
             >
               Etkinlik Ekle
-            </a>
+            </p>
           </div>
         </form>
       </div>

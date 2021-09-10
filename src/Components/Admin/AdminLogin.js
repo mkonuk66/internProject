@@ -32,6 +32,7 @@ export default class AdminLogin extends Component {
 
     if (userController) {
       localStorage.clear();
+      this.props.isAuthenticated = true;
       window.open("/adminDashboard", "_self");
       alert("Giriş başarılı!");
     } else {
