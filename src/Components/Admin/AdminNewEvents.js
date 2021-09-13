@@ -68,7 +68,11 @@ export default class AdminNewEvents extends Component {
               <CKEditor
                 editor={ClassicEditor}
                 onBlur={(event, editor) => {
-                  ckData = JSON.stringify(editor.getData());
+                  const rawData = JSON.stringify(editor.getData());
+                  let process = rawData.split('"');
+                  process.pop();
+                  process.shift();
+                  ckData = process.join(" ");
                 }}
               />
             </div>

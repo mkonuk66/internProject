@@ -3,25 +3,87 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 
+const getEventId = window.location.pathname.split("/");
+const eventId = getEventId[2];
 let ckData = "";
 
 export default class AdminEditEvent extends Component {
-  handleSubmit(data) {
-    const newEvent = {
+  constructor(props) {
+    super(props);
+    this.onChangeTitle = this.onChangeTitle.bind(this);
+    this.onChangeCreatedAt = this.onChangeCreatedAt.bind(this);
+    this.onChangeEventImage = this.onChangeEventImage.bind(this);
+    this.onChangeContent = this.onChangeContent.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      title: "",
+      createdAt: "",
+      eventImage: "",
+      content: "",
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/admin/events/" + eventId)
+      .then((response) => {
+        this.setState({
+          title: response.data.title,
+          createdAt: response.data.createdAt,
+          eventImage: response.data.eventImage,
+          content: response.data.content,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  onChangeTitle(e) {
+    this.setState({
+      title: e.target.value,
+    });
+  }
+
+  onChangeCreatedAt(e) {
+    this.setState({
+      createdAt: e.target.value,
+    });
+  }
+
+  onChangeEventImage(e) {
+    this.setState({
+      eventImage: e.target.value,
+    });
+  }
+
+  onChangeContent(e) {
+    this.setState({
+      content: e.target.value,
+    });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const updateEvent = {
       title: document.getElementById("eventTitle").value,
       createdAt: document.getElementById("eventDate").value,
       eventImage: document.getElementById("eventImage").value,
       content: ckData,
     };
-    console.log(newEvent);
+
     axios
-      .post("http://localhost:5000/admin/events/newEvent", newEvent)
-      .then(
-        (res) => localStorage.clear(),
-        window.open("/adminEvent", "_self"),
-        alert("Etkinlik Başarıyla Eklenid")
+      .post(
+        "http://localhost:5000/admin/events/updateEvent/" + eventId,
+        updateEvent
       )
-      .catch((err) => alert("Hata: " + err));
+      .then(
+        (res) => window.open("/adminEvent", "_self"),
+        alert("Etkinlik başarıyla güncellendi")
+      )
+      .catch((err) => alert(err));
   }
 
   render() {
@@ -46,6 +108,8 @@ export default class AdminEditEvent extends Component {
               className="form-control"
               id="eventTitle"
               placeholder="Etkinlik adını giriniz"
+              value={this.state.title}
+              onChange={this.onChangeTitle}
             />
           </div>
           <div className="form-group">
@@ -55,27 +119,39 @@ export default class AdminEditEvent extends Component {
               className="form-control"
               id="eventDate"
               placeholder="Etkinlik adını giriniz"
+              value={this.state.createdAt}
+              onChange={this.onChangeCreatedAt}
             />
           </div>
           <div className="form-group mt-4">
             <label className=" mb-1">Etkinlik Fotoğraf</label>
             <br />
-            <input type="file" className="form-control-file" id="eventImage" />
+            <input
+              type="file"
+              className="form-control-file"
+              id="eventImage"
+              onChange={this.onChangeEventImage}
+            />
           </div>
           <div className="form-group mt-4">
             <div className="App">
               <label className=" mb-1">Etkinlik İçerik</label>
               <CKEditor
                 editor={ClassicEditor}
+                data={this.state.content}
                 onBlur={(event, editor) => {
-                  ckData = JSON.stringify(editor.getData());
+                  const rawData = JSON.stringify(editor.getData());
+                  let process = rawData.split('"');
+                  process.pop();
+                  process.shift();
+                  ckData = process.join(" ");
                 }}
               />
             </div>
             <p
               type="submit "
               className="btn btn-warning mb-2 mt-5"
-              onClick={this.handleSubmit}
+              onClick={this.onSubmit}
             >
               Etkinlik Ekle
             </p>
