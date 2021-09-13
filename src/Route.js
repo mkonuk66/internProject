@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  Route,
-  Switch,
-  BrowserRouter,
-  Redirect,
-  useLocation,
-} from "react-router-dom";
+import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import NotFound from "./Components/NotFound";
 import Notice from "./Components/AllNotice";
@@ -28,11 +22,10 @@ import AdminNewUsers from "./Components/Admin/AdminNewUsers";
 import AdminEditUser from "./Components/Admin/AdminEditUser";
 import AdminEditEvent from "./Components/Admin/AdminEditEvent";
 
-let isAuthenticated = false;
 const PrivateRoute = (props) => {
   const location = useLocation();
-  isAuthenticated = true;
-  return isAuthenticated ? (
+  const isAuthenticated1 = true;
+  return isAuthenticated1 ? (
     <Route {...props} />
   ) : (
     <Redirect
@@ -48,31 +41,58 @@ export default class Routes extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/notice" component={Notice} />
-            <Route path="/event" component={Events} />
-            <Route path="/news" component={News} />
-            <Route path="/admin" component={AdminLogin} />
-            <Route path="/comingSoon" component={Coming} />
-            <Route path="/contact" component={Contact} />
-            <PrivateRoute path="/adminDashboard" component={Dashboard} />
-            <PrivateRoute path="/adminNotice" component={AdminNotices} />
-            <PrivateRoute path="/adminEvent" component={AdminEvents} />
-            <PrivateRoute path="/adminNews" component={AdminNews} />
-            <PrivateRoute path="/adminSlider" component={AdminSlider} />
-            <PrivateRoute path="/adminUser" component={Admins} />
-            <PrivateRoute path="/adminNoticeNew" component={AdminNewNotices} />
-            <PrivateRoute path="/adminEventNew" component={AdminNewEvents} />
-            <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
-            <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />
-            <PrivateRoute path="/adminUserNew" component={AdminNewUsers} />
-            <PrivateRoute path="/adminUserEdit" component={AdminEditUser} />
-            <PrivateRoute path="/adminEditEvent" component={AdminEditEvent} />
-            <Route path="*" component={NotFound} />
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/notice" component={Notice} />
+          <Route path="/event" component={Events} />
+          <Route path="/news" component={News} />
+          <Route path="/comingSoon" component={Coming} />
+          <Route path="/contact" component={Contact} />
+          <Route
+            path="/admin"
+            render={(props) => (
+              <AdminLogin
+                {...props}
+                users={this.props.users}
+                getUserDataFromDatabase={this.props.getUserDataFromDatabase}
+              />
+            )}
+          />
+          <PrivateRoute path="/adminDashboard" component={Dashboard} />
+          <PrivateRoute path="/adminNotice" component={AdminNotices} />
+          <PrivateRoute
+            path="/adminEvent"
+            render={(props) => (
+              <AdminEvents
+                {...props}
+                event={this.props.event}
+                getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+                deleteEvent={this.props.deleteEvent}
+              />
+            )}
+          />
+          <PrivateRoute path="/adminNews" component={AdminNews} />
+          <PrivateRoute path="/adminSlider" component={AdminSlider} />
+          <PrivateRoute
+            path="/adminUser"
+            render={(props) => (
+              <Admins
+                {...props}
+                users={this.props.users}
+                getUserDataFromDatabase={this.props.getUserDataFromDatabase}
+                deleteUser={this.props.deleteUser}
+              />
+            )}
+          />
+          <PrivateRoute path="/adminNoticeNew" component={AdminNewNotices} />
+          <PrivateRoute path="/adminEventNew" component={AdminNewEvents} />
+          <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
+          <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />
+          <PrivateRoute path="/adminUserNew" component={AdminNewUsers} />
+          <PrivateRoute path="/adminUserEdit" component={AdminEditUser} />
+          <PrivateRoute path="/adminEditEvent" component={AdminEditEvent} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   }

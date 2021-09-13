@@ -56,10 +56,11 @@ export default class EditExercise extends Component {
         "http://localhost:5000/admin/users/updateUser/" + userId,
         changeUser
       )
-      .then((res) => console.log(res.data));
-
-    window.location = "/adminUser";
-    alert("Kullanıcı başarıyla güncellendi");
+      .then(
+        (res) => window.open("/adminUser", "_self"),
+        alert("Kullanıcı başarıyla güncellendi")
+      )
+      .catch((err) => alert(err));
   }
 
   render() {

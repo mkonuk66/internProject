@@ -1,27 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 export default class AdminLogin extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { users: [] };
-  }
-
-  componentDidMount() {
-    axios
-      .get("http://localhost:5000/admin/users/")
-      .then((response) => {
-        this.setState({ users: response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
   handleSubmit = (e) => {
     let userController = false;
-
-    this.state.users.forEach((currentusers) => {
+    this.props.users.map((currentusers) => {
       if (
         currentusers.username === document.getElementById("userName").value &&
         currentusers.password === document.getElementById("userPassword").value
@@ -33,11 +15,11 @@ export default class AdminLogin extends Component {
     if (userController) {
       localStorage.clear();
       window.open("/adminDashboard", "_self");
-      alert("Giriş başarılı!");
+      alert("Giriş Başarılı! Admin Paneline Yönlendiriliyorsunuz.");
     } else {
-      alert("Kullanıcı adı veya şifre hatalı!");
       localStorage.clear();
       window.open("/admin", "_self");
+      alert("Kullanıcı adı veya şifre hatalı!");
     }
   };
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const Users = (props) => (
   <tr>
@@ -28,40 +27,13 @@ const Users = (props) => (
 );
 
 export default class UserList extends Component {
-  constructor(props) {
-    super(props);
-    this.deleteUser = this.deleteUser.bind(this);
-    this.state = { users: [] };
-  }
-
-  componentDidMount() {
-    axios
-      .get("http://localhost:5000/admin/users/")
-      .then((response) => {
-        this.setState({ users: response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  deleteUser(id) {
-    axios.delete("http://localhost:5000/admin/users/" + id).then((response) => {
-      console.log(response.data);
-    });
-
-    this.setState({
-      users: this.state.users.filter((el) => el._id !== id),
-    });
-  }
-
   usersList() {
-    return this.state.users.map((currentusers) => {
+    return this.props.users.map((currentusers) => {
       return (
         <Users
           users={currentusers}
           key={currentusers._id}
-          deleteUser={this.deleteUser}
+          deleteUser={this.props.deleteUser}
         />
       );
     });

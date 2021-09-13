@@ -28,12 +28,6 @@ const Event = (props) => (
 );
 
 export default class AdminEvents extends Component {
-  constructor(props) {
-    super(props);
-    this.deleteEvent = this.deleteEvent.bind(this);
-    this.state = { event: [] };
-  }
-
   componentDidMount() {
     axios
       .get("http://localhost:5000/admin/events/")
@@ -45,25 +39,13 @@ export default class AdminEvents extends Component {
       });
   }
 
-  deleteEvent(id) {
-    axios
-      .delete("http://localhost:5000/admin/events/" + id)
-      .then((response) => {
-        console.log(response.data);
-      });
-
-    this.setState({
-      event: this.state.event.filter((el) => el._id !== id),
-    });
-  }
-
   eventList() {
-    return this.state.event.map((currentevent) => {
+    return this.props.event.map((currentevent) => {
       return (
         <Event
           event={currentevent}
           key={currentevent._id}
-          deleteEvent={this.deleteEvent}
+          deleteEvent={this.props.deleteEvent}
         />
       );
     });
