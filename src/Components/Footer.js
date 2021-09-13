@@ -8,7 +8,7 @@ export default class Footer extends Component {
         <div className="footerBlock">
           <div>
             <Link to="/">
-              <img src="./images/logo.png" alt="footerLogo" />
+              <img src="/images/logo.png" alt="footerLogo" />
             </Link>
           </div>
           <div className="footerLinkBlock">

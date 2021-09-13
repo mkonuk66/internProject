@@ -4,6 +4,7 @@ import HomePage from "./Components/HomePage";
 import NotFound from "./Components/NotFound";
 import Notice from "./Components/AllNotice";
 import Events from "./Components/AllEvents";
+import EventDetail from "./Components/EventDetail";
 import News from "./Components/AllNews";
 import Coming from "./Components/ComingSoon";
 import Contact from "./Components/Contact";
@@ -42,9 +43,38 @@ export default class Routes extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <HomePage
+                {...props}
+                events={this.props.events}
+                getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+              />
+            )}
+          />{" "}
+          <Route
+            path="/eventDetail"
+            render={(props) => (
+              <EventDetail
+                {...props}
+                events={this.props.events}
+                getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+              />
+            )}
+          />
           <Route path="/notice" component={Notice} />
-          <Route path="/event" component={Events} />
+          <Route
+            path="/event"
+            render={(props) => (
+              <Events
+                {...props}
+                events={this.props.events}
+                getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+              />
+            )}
+          />
           <Route path="/news" component={News} />
           <Route path="/comingSoon" component={Coming} />
           <Route path="/contact" component={Contact} />
@@ -65,7 +95,7 @@ export default class Routes extends Component {
             render={(props) => (
               <AdminEvents
                 {...props}
-                event={this.props.event}
+                events={this.props.events}
                 getEventDataFromDatabase={this.props.getEventDataFromDatabase}
                 deleteEvent={this.props.deleteEvent}
               />

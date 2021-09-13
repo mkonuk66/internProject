@@ -1,66 +1,70 @@
 import React, { Component } from "react";
 
+function MonthChanger(a) {
+  switch (a) {
+    case "01":
+      return (a = "Ocak");
+    case "02":
+      return (a = "Şubat");
+    case "03":
+      return (a = "Mart");
+    case "04":
+      return (a = "Nisan");
+    case "05":
+      return (a = "Mayıs");
+    case "06":
+      return (a = "Haziran");
+    case "07":
+      return (a = "Temmuz");
+    case "08":
+      return (a = "Ağustos");
+    case "09":
+      return (a = "Eylül");
+    case "10":
+      return (a = "Ekim");
+    case "11":
+      return (a = "Kasım");
+    case "12":
+      return (a = "Aralık");
+  }
+}
+
+const Event = (props) => (
+  <a href={"/eventDetail/" + props.events._id}>
+    <tr className="tr">
+      <td className="eventDate">
+        <cite>{props.events.createdAt.split("-")[2]}</cite>
+        <cite>{MonthChanger(props.events.createdAt.split("-")[1])}</cite>
+      </td>
+      <td>
+        <p>{props.events.title}</p>
+      </td>
+    </tr>
+    <br />
+  </a>
+);
+
 export default class Events extends Component {
+  eventList() {
+    return this.props.events.reverse().map((currentevent, i) => {
+      let lastIndex = this.props.events.length;
+      if (lastIndex === i + lastIndex) {
+        return <Event events={currentevent} key={currentevent._id} />;
+      } else if (lastIndex + 1 === i + lastIndex) {
+        return <Event events={currentevent} key={currentevent._id} />;
+      } else if (lastIndex + 2 === i + lastIndex) {
+        return <Event events={currentevent} key={currentevent._id} />;
+      }
+    });
+  }
+
   render() {
     return (
       <div>
         <h4 className="eventTitle">Etkinlikler</h4>
 
         <table className="event">
-          <a
-            href="https://bozok.edu.tr/etkinlik/sertifika-toreni-sefaatlide-kadinlar-kick-boks-yapiyor-saglikli-kaliyor,tr-857.aspx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <tr className="tr">
-              <td className="eventDate">
-                <cite>01</cite>
-                <cite>Ağustos</cite>
-              </td>
-              <td>
-                <p>Sertifika Töreni</p>
-              </td>
-            </tr>
-          </a>
-
-          <br />
-          <a
-            href="https://bozok.edu.tr/etkinlik/murat-anar-ile-rota-gundem-programinda-yozgat-bozok-universitesi-tercih-gunleri,tr-855.aspx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <tr>
-              <td className="eventDate">
-                <cite>31</cite>
-                <cite>Ağustos</cite>
-              </td>
-              <td>
-                <p>
-                  Murat Anar ile Rota Gündem Programında Yozgat Bozok
-                  Üniversitesi Tercih Günleri
-                </p>
-              </td>
-            </tr>
-          </a>
-
-          <br />
-          <a
-            href="https://bozok.edu.tr/etkinlik/universitemizde-sosyal-hayat,tr-849.aspx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <tr>
-              <td className="eventDate">
-                <cite>21</cite>
-                <cite>Ağustos</cite>
-              </td>
-
-              <td>
-                <p>Üniversitemizde Sosyal Hayat</p>
-              </td>
-            </tr>
-          </a>
-
+          {this.eventList()}
           <tr>
             <td></td>
             <td></td>

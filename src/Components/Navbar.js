@@ -38,7 +38,7 @@ const NavBar = (props) => {
       <Navbar light fixed="top" expand="md" className="navbar" id="navigation">
         <div className="navbarHamburger">
           <a href="/">
-            <img src="./images/logo_yazi.png" alt="navLogo" id="navLogo" />
+            <img src="/images/logo_yazi.png" alt="navLogo" id="navLogo" />
           </a>
         </div>
         <NavbarToggler onClick={toggle} />

@@ -18,7 +18,7 @@ export default class AdminNewEvents extends Component {
       .post("http://localhost:5000/admin/events/newEvent", newEvent)
       .then(
         (res) => localStorage.clear(),
-        window.open("/adminEvent", "_self"),
+
         alert("Etkinlik Başarıyla Eklendi.")
       )
       .catch((err) => alert("Hata: " + err));
@@ -50,12 +50,7 @@ export default class AdminNewEvents extends Component {
           </div>
           <div className="form-group">
             <label className=" mb-1">Etkinlik Tarih</label>
-            <input
-              type="date"
-              className="form-control"
-              id="eventDate"
-              placeholder="Etkinlik adını giriniz"
-            />
+            <input type="date" className="form-control" id="eventDate" />
           </div>
           <div className="form-group mt-4">
             <label className=" mb-1">Etkinlik Fotoğraf</label>

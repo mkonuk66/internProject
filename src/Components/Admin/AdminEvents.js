@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 const Event = (props) => (
   <tr>
     <th scope="row">1</th>
-    <td>{props.event._id}</td>
-    <td>{props.event.title}</td>
-    <td>{props.event.createdAt}</td>
+    <td>{props.events._id}</td>
+    <td>{props.events.title}</td>
+    <td>{props.events.createdAt}</td>
     <td>
-      <a href={"/adminEditEvent/" + props.event._id}>
+      <a href={"/adminEditEvent/" + props.events._id}>
         {" "}
         <i className="fa fa-pencil fa-2x adminIcon"></i>
       </a>
@@ -16,8 +15,8 @@ const Event = (props) => (
     <td>
       <p
         onClick={() => {
-          props.deleteEvent(props.event._id);
-          alert(props.event.title + " başlıklı etkinlik silindi.");
+          props.deleteEvent(props.events._id);
+          alert(props.events.title + " başlıklı etkinlik silindi.");
         }}
       >
         {" "}
@@ -28,22 +27,11 @@ const Event = (props) => (
 );
 
 export default class AdminEvents extends Component {
-  componentDidMount() {
-    axios
-      .get("http://localhost:5000/admin/events/")
-      .then((response) => {
-        this.setState({ event: response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
   eventList() {
-    return this.props.event.map((currentevent) => {
+    return this.props.events.map((currentevent) => {
       return (
         <Event
-          event={currentevent}
+          events={currentevent}
           key={currentevent._id}
           deleteEvent={this.props.deleteEvent}
         />

@@ -9,7 +9,7 @@ export default class News extends Component {
           <div className="newsCard">
             <figure className="newsCardThumb">
               <img
-                src="./images/news/1.jpg"
+                src="/images/news/1.jpg"
                 alt="newsImage"
                 className="newsCardImage"
               />
@@ -31,7 +31,7 @@ export default class News extends Component {
           <div className="newsCard">
             <figure className="newsCardThumb">
               <img
-                src="./images/news/2.jpg"
+                src="/images/news/2.jpg"
                 alt="newsImage"
                 className="newsCardImage"
               />
@@ -53,7 +53,7 @@ export default class News extends Component {
           <div className="newsCard">
             <figure className="newsCardThumb">
               <img
-                src="./images/news/3.jpg"
+                src="/images/news/3.jpg"
                 alt="newsImage"
                 className="newsCardImage"
               />
