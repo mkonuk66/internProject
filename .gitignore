@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/backend/node_modules
 /.pnp
 .pnp.js
 
@@ -9,9 +10,7 @@
 /coverage
 
 # backend
-/backend/config/env/config.env
-/backend/node_modules
-/backend/package-lock.json
+
 
 # production
 /build
