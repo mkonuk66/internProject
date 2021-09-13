@@ -8,7 +8,7 @@ export default class App extends Component {
     super(props);
     this.deleteUser = this.deleteUser.bind(this);
     this.deleteEvent = this.deleteEvent.bind(this);
-    this.state = { users: [], event: [] };
+    this.state = { users: [], events: [] };
   }
 
   componentDidMount() {
@@ -30,7 +30,7 @@ export default class App extends Component {
     axios
       .get("http://localhost:5000/admin/events/")
       .then((response) => {
-        this.setState({ event: response.data });
+        this.setState({ events: response.data });
       })
       .catch((error) => {
         console.log(error);
@@ -55,7 +55,7 @@ export default class App extends Component {
       });
 
     this.setState({
-      event: this.state.event.filter((el) => el._id !== id),
+      events: this.state.events.filter((el) => el._id !== id),
     });
   }
   render() {
@@ -68,7 +68,7 @@ export default class App extends Component {
                 <Routes
                   {...props}
                   users={this.state.users}
-                  event={this.state.event}
+                  events={this.state.events}
                   getUserDataFromDatabase={this.getUserDataFromDatabase}
                   getEventDataFromDatabase={this.getEventDataFromDatabase}
                   deleteUser={this.deleteUser}

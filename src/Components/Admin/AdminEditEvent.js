@@ -85,7 +85,6 @@ export default class AdminEditEvent extends Component {
       )
       .catch((err) => alert(err));
   }
-
   render() {
     return (
       <div className="container mt-5">
@@ -153,7 +152,7 @@ export default class AdminEditEvent extends Component {
               className="btn btn-warning mb-2 mt-5"
               onClick={this.onSubmit}
             >
-              Etkinlik Ekle
+              Etkinlik Güncelle
             </p>
           </div>
         </form>

@@ -10,16 +10,16 @@ class Slider extends Component {
         <div className="mobileDiv" />
         <Carousel infiniteLoop={1} autoPlay={1} showThumbs={0} showStatus={0}>
           <div>
-            <img src="./images/slider/1.webp" alt="slider" id="sliderImages" />
+            <img src="/images/slider/1.webp" alt="slider" id="sliderImages" />
           </div>
           <div>
-            <img src="./images/slider/2.webp" alt="slider" id="sliderImages" />
+            <img src="/images/slider/2.webp" alt="slider" id="sliderImages" />
           </div>
           <div>
-            <img src="./images/slider/3.webp" alt="slider" id="sliderImages" />
+            <img src="/images/slider/3.webp" alt="slider" id="sliderImages" />
           </div>
           <div>
-            <img src="./images/slider/4.webp" alt="slider" id="sliderImages" />
+            <img src="/images/slider/4.webp" alt="slider" id="sliderImages" />
           </div>
         </Carousel>
       </div>
