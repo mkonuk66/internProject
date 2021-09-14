@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class AdminNotice extends Component {
+export default class AdminNotification extends Component {
   render() {
     return (
       <div className="container mt-5">
@@ -15,7 +15,7 @@ export default class AdminNotice extends Component {
             Geri Dön
           </a>
           <a
-            href="/adminNoticeNew"
+            href="/adminNotificationNew"
             className=" btn btn-warning  btn-lg p-2 m-2"
           >
             Duyuru Ekle

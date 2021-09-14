@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class Notice extends Component {
+export default class Notification extends Component {
   render() {
     return (
       <div>
@@ -67,7 +67,7 @@ export default class Notice extends Component {
             <td></td>
             <td></td>
             <td>
-              <a href="/notice"> Daha fazlası </a>
+              <a href="/notification"> Daha fazlası </a>
             </td>
           </tr>
         </table>

@@ -29,7 +29,7 @@ export default class AdminDashboard extends Component {
             Haberler
           </a>
           <a
-            href="/adminNotice"
+            href="/adminNotification"
             className="btn btn-warning col-md-2 mt-3 btn-lg"
           >
             Duyurular

@@ -15,10 +15,12 @@ export default class AdminLogin extends Component {
     if (userController) {
       localStorage.clear();
       window.open("/adminDashboard", "_self");
+      this.props.onChangeAuthState(true);
       alert("Giriş Başarılı! Admin Paneline Yönlendiriliyorsunuz.");
     } else {
       localStorage.clear();
       window.open("/admin", "_self");
+      this.props.onChangeAuthState(false);
       alert("Kullanıcı adı veya şifre hatalı!");
     }
   };

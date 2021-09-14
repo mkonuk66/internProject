@@ -26,7 +26,9 @@ export default class AdminEditEvent extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/admin/events/" + eventId)
+      .get(
+        "https://mkonuk-intern-project.herokuapp.com/admin/events/" + eventId
+      )
       .then((response) => {
         this.setState({
           title: response.data.title,
@@ -76,7 +78,8 @@ export default class AdminEditEvent extends Component {
 
     axios
       .post(
-        "http://localhost:5000/admin/events/updateEvent/" + eventId,
+        "https://mkonuk-intern-project.herokuapp.com/admin/events/updateEvent/" +
+          eventId,
         updateEvent
       )
       .then(

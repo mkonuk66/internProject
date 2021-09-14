@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect, useLocation } from "react-router-dom";
 import HomePage from "./Components/HomePage";
 import NotFound from "./Components/NotFound";
-import Notice from "./Components/AllNotice";
+import Notification from "./Components/AllNotification";
 import Events from "./Components/AllEvents";
 import EventDetail from "./Components/EventDetail";
 import News from "./Components/AllNews";
@@ -12,22 +12,22 @@ import AdminLogin from "./Components/Admin/AdminLogin";
 import Dashboard from "./Components/Admin/AdminDashboard";
 import AdminSlider from "./Components/Admin/AdminSlider";
 import AdminNews from "./Components/Admin/AdminNews";
-import AdminNotices from "./Components/Admin/AdminNotice";
+import AdminNotification from "./Components/Admin/AdminNotification";
 import AdminEvents from "./Components/Admin/AdminEvents";
 import Admins from "./Components/Admin/AdminUsers";
 import AdminNewSlider from "./Components/Admin/AdminNewSlider";
 import AdminNewNews from "./Components/Admin/AdminNewNews";
-import AdminNewNotices from "./Components/Admin/AdminNewNotice";
+import AdminNewNotification from "./Components/Admin/AdminNewNotification";
 import AdminNewEvents from "./Components/Admin/AdminNewEvents";
 import AdminNewUsers from "./Components/Admin/AdminNewUsers";
 import AdminEditUser from "./Components/Admin/AdminEditUser";
 import AdminEditEvent from "./Components/Admin/AdminEditEvent";
 
-const PrivateRoute = (props) => {
+const PrivateRoute = (props1) => {
   const location = useLocation();
-  const isAuthenticated1 = true;
-  return isAuthenticated1 ? (
-    <Route {...props} />
+  let isAuthRoute = true;
+  return isAuthRoute ? (
+    <Route {...props1} />
   ) : (
     <Redirect
       to={{
@@ -64,7 +64,7 @@ export default class Routes extends Component {
               />
             )}
           />
-          <Route path="/notice" component={Notice} />
+          <Route path="/notification" component={Notification} />
           <Route
             path="/event"
             render={(props) => (
@@ -83,13 +83,18 @@ export default class Routes extends Component {
             render={(props) => (
               <AdminLogin
                 {...props}
+                isAuth={this.props.isAuth}
                 users={this.props.users}
+                onChangeAuthState={this.props.onChangeAuthState}
                 getUserDataFromDatabase={this.props.getUserDataFromDatabase}
               />
             )}
           />
           <PrivateRoute path="/adminDashboard" component={Dashboard} />
-          <PrivateRoute path="/adminNotice" component={AdminNotices} />
+          <PrivateRoute
+            path="/adminNotification"
+            component={AdminNotification}
+          />
           <PrivateRoute
             path="/adminEvent"
             render={(props) => (
@@ -114,7 +119,10 @@ export default class Routes extends Component {
               />
             )}
           />
-          <PrivateRoute path="/adminNoticeNew" component={AdminNewNotices} />
+          <PrivateRoute
+            path="/adminNotificationNew"
+            component={AdminNewNotification}
+          />
           <PrivateRoute path="/adminEventNew" component={AdminNewEvents} />
           <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
           <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />

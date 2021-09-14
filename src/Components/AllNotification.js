@@ -3,7 +3,7 @@ import { Container } from "reactstrap";
 import Nav from "./Navbar";
 import Footer from "./Footer";
 
-export default class AllNotice extends Component {
+export default class AllNotification extends Component {
   render() {
     return (
       <div>

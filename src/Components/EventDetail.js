@@ -33,7 +33,7 @@ export default class EventDetail extends Component {
       if (currentevent._id === eventId) {
         return <Detail events={currentevent} key={currentevent._id} />;
       } else {
-        return <NotFound />;
+        <NotFound />;
       }
     });
   }

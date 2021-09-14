@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-export default class AdminNewNotice extends Component {
+export default class AdminNewNotification extends Component {
   render() {
     return (
       <div className="container mt-5">
         <div className="container d-flex justify-content-center align-items-center column mb-5">
           <a
-            href="/adminNotice"
+            href="/adminNotification"
             className="  btn btn-warning  btn-lg m-5 mt-0 mb-0"
           >
             Geri Dön
@@ -24,7 +24,7 @@ export default class AdminNewNotice extends Component {
             <input
               type="email"
               className="form-control"
-              id="noticeTitle"
+              id="notificationTitle"
               placeholder="Etkinlik adını giriniz"
               required
             />
@@ -32,7 +32,11 @@ export default class AdminNewNotice extends Component {
           <div className="form-group mt-4">
             <label className=" mb-1">Duyuru Fotoğraf</label>
             <br />
-            <input type="file" className="form-control-file" id="noticeImage" />
+            <input
+              type="file"
+              className="form-control-file"
+              id="notificationImage"
+            />
           </div>
           <div className="form-group mt-4">
             <div className="App">
@@ -47,7 +51,7 @@ export default class AdminNewNotice extends Component {
                 }}
               />
             </div>
-            <a href="/adminNotice" class="btn btn-warning mb-2 mt-5">
+            <a href="/adminNotification" class="btn btn-warning mb-2 mt-5">
               Duyuru Ekle
             </a>
           </div>

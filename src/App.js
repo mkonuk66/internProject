@@ -3,6 +3,8 @@ import Routes from "./Route";
 import axios from "axios";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
+let isAuth1 = "";
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ export default class App extends Component {
 
   getUserDataFromDatabase() {
     axios
-      .get("http://localhost:5000/admin/users/")
+      .get("https://mkonuk-intern-project.herokuapp.com/admin/users/")
       .then((response) => {
         this.setState({ users: response.data });
       })
@@ -28,7 +30,7 @@ export default class App extends Component {
   }
   getEventDataFromDatabase() {
     axios
-      .get("http://localhost:5000/admin/events/")
+      .get("https://mkonuk-intern-project.herokuapp.com/admin/events/")
       .then((response) => {
         this.setState({ events: response.data });
       })
@@ -38,9 +40,11 @@ export default class App extends Component {
   }
 
   deleteUser(id) {
-    axios.delete("http://localhost:5000/admin/users/" + id).then((response) => {
-      console.log(response.data);
-    });
+    axios
+      .delete("https://mkonuk-intern-project.herokuapp.com/admin/users/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
 
     this.setState({
       users: this.state.users.filter((el) => el._id !== id),
@@ -49,7 +53,7 @@ export default class App extends Component {
 
   deleteEvent(id) {
     axios
-      .delete("http://localhost:5000/admin/events/" + id)
+      .delete("https://mkonuk-intern-project.herokuapp.com/admin/events/" + id)
       .then((response) => {
         console.log(response.data);
       });

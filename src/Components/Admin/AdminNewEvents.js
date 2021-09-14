@@ -15,7 +15,10 @@ export default class AdminNewEvents extends Component {
     };
     console.log(newEvent);
     axios
-      .post("http://localhost:5000/admin/events/newEvent", newEvent)
+      .post(
+        "https://mkonuk-intern-project.herokuapp.com/admin/events/newEvent",
+        newEvent
+      )
       .then(
         (res) => localStorage.clear(),
 
