@@ -10,7 +10,7 @@ export default class App extends Component {
     super(props);
     this.deleteUser = this.deleteUser.bind(this);
     this.deleteEvent = this.deleteEvent.bind(this);
-    this.state = { users: [], events: [] };
+    this.state = { users: [], events: [], notifications: [] };
   }
 
   componentDidMount() {
@@ -28,6 +28,7 @@ export default class App extends Component {
         console.log(error);
       });
   }
+
   getEventDataFromDatabase() {
     axios
       .get("https://mkonuk-intern-project.herokuapp.com/admin/events/")
@@ -62,6 +63,7 @@ export default class App extends Component {
       events: this.state.events.filter((el) => el._id !== id),
     });
   }
+
   render() {
     return (
       <div className="App">

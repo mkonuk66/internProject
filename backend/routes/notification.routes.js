@@ -10,12 +10,14 @@ router.route("/").get((req, res) => {
 router.route("/newNotification").post((req, res) => {
   const title = req.body.title;
   const createdAt = req.body.createdAt;
+  const noticeDate = req.body.noticeDate;
   const notificationImage = req.body.notificationImage;
   const content = req.body.content;
 
   const newNotification = new Notification({
     title,
     createdAt,
+    noticeDate,
     notificationImage,
     content,
   });
@@ -43,6 +45,7 @@ router.route("/updateNotification/:id").post((req, res) => {
     .then((notification) => {
       notification.title = req.body.title;
       notification.createdAt = req.body.createdAt;
+      notification.notificationDate = req.body.notificationDate;
       notification.notificationImage = req.body.notificationImage;
       notification.content = req.body.content;
 

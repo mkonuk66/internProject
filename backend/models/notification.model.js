@@ -11,7 +11,7 @@ const NotificationSchema = new Schema({
     type: String,
     required: "Boş Bırakılamaz",
   },
-  updatedAt: {
+  noticeDate: {
     type: String,
   },
   notificationImage: {
