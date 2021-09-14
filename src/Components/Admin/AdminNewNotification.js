@@ -20,10 +20,13 @@ export default class AdminNewNotification extends Component {
     console.log(newNotification);
     axios
       .post(
-        "https://mkonuk-intern-project.herokuapp.com/admin/notifications/newNotification/",
+        "http://localhost:5000/admin/notifications/newNotification/",
         newNotification
       )
-      .then((res) => alert("Duyuru Başarıyla Eklendi."))
+      .then(
+        (res) => window.open("/adminNotification", "_self"),
+        alert("Duyuru Başarıyla Eklendi.")
+      )
       .catch((err) => alert("Hata: " + err));
   }
   render() {
