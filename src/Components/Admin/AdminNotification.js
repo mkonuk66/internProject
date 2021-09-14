@@ -40,10 +40,10 @@ export default class AdminNotification extends Component {
               <td>Lorem ipsum dolor sit amet.</td>
               <td>21.01.2015</td>
               <td>
-                <i class="fa fa-edit fa-2x"></i>
+                <i className="fa fa-edit fa-2x"></i>
               </td>
               <td>
-                <i class="fa fa-trash fa-2x"></i>
+                <i className="fa fa-trash fa-2x"></i>
               </td>
             </tr>
             <tr>
