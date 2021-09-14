@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class AdminLogin extends Component {
   handleSubmit = (e) => {
     let userController = false;
-    this.props.users.map((currentusers) => {
+    this.props.users.forEach((currentusers) => {
       if (
         currentusers.username === document.getElementById("userName").value &&
         currentusers.password === document.getElementById("userPassword").value

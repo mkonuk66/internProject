@@ -26,6 +26,8 @@ function MonthChanger(a) {
       return (a = "Kasım");
     case "12":
       return (a = "Aralık");
+    default:
+      a = " ";
   }
 }
 

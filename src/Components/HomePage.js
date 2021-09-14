@@ -8,9 +8,6 @@ import Nav from "./Navbar";
 import Footer from "./Footer";
 
 export default class HomePage extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>
