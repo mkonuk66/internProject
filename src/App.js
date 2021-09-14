@@ -20,7 +20,7 @@ export default class App extends Component {
 
   getUserDataFromDatabase() {
     axios
-      .get("https://mkonuk-intern-project.herokuapp.com/admin/users/")
+      .get("http://localhost:5000/admin/users/")
       .then((response) => {
         this.setState({ users: response.data });
       })
@@ -31,7 +31,7 @@ export default class App extends Component {
 
   getEventDataFromDatabase() {
     axios
-      .get("https://mkonuk-intern-project.herokuapp.com/admin/events/")
+      .get("http://localhost:5000/admin/events/")
       .then((response) => {
         this.setState({ events: response.data });
       })
@@ -41,11 +41,9 @@ export default class App extends Component {
   }
 
   deleteUser(id) {
-    axios
-      .delete("https://mkonuk-intern-project.herokuapp.com/admin/users/" + id)
-      .then((response) => {
-        console.log(response.data);
-      });
+    axios.delete("http://localhost:5000/admin/users/" + id).then((response) => {
+      console.log(response.data);
+    });
 
     this.setState({
       users: this.state.users.filter((el) => el._id !== id),
@@ -54,7 +52,7 @@ export default class App extends Component {
 
   deleteEvent(id) {
     axios
-      .delete("https://mkonuk-intern-project.herokuapp.com/admin/events/" + id)
+      .delete("http://localhost:5000/admin/events/" + id)
       .then((response) => {
         console.log(response.data);
       });
