@@ -5,7 +5,7 @@ import FileBase64 from "react-file-base64";
 import axios from "axios";
 
 let ckData = "";
-let aData = "";
+let imagePath = "";
 export default class AdminNewEvents extends Component {
   constructor() {
     super();
@@ -15,13 +15,17 @@ export default class AdminNewEvents extends Component {
   }
   getFiles(files) {
     this.setState({ files: files });
-    aData = files;
+    imagePath = files;
   }
-  handleSubmit(data) {
+  handleSubmit() {
+    let date = new Date();
     const newEvent = {
       title: document.getElementById("eventTitle").value,
-      createdAt: document.getElementById("eventDate").value,
-      eventImage: aData,
+      createdAt: `${date.getDate()}.${
+        date.getMonth() + 1
+      }.${date.getFullYear()}`,
+      eventDate: document.getElementById("eventDate").value,
+      eventImage: imagePath,
       content: ckData,
     };
     console.log(newEvent);

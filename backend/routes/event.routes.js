@@ -9,6 +9,7 @@ router.route("/").get((req, res) => {
 
 router.route("/newEvent").post((req, res) => {
   const title = req.body.title;
+  const eventDate = req.body.eventDate;
   const createdAt = req.body.createdAt;
   const eventImage = req.body.eventImage;
   const content = req.body.content;
@@ -16,6 +17,7 @@ router.route("/newEvent").post((req, res) => {
   const newEvent = new Event({
     title,
     createdAt,
+    eventDate,
     eventImage,
     content,
   });
@@ -42,6 +44,7 @@ router.route("/updateEvent/:id").post((req, res) => {
   Event.findById(req.params.id)
     .then((event) => {
       event.title = req.body.title;
+      event.eventDate = req.body.eventDate;
       event.createdAt = req.body.createdAt;
       event.eventImage = req.body.eventImage;
       event.content = req.body.content;

@@ -11,6 +11,10 @@ const EventSchema = new Schema({
     type: String,
     required: "Boş Bırakılamaz",
   },
+  eventDate: {
+    type: String,
+    required: "Boş Bırakılamaz",
+  },
   eventImage: {
     type: Object,
   },

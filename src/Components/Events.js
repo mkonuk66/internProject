@@ -35,8 +35,8 @@ const Event = (props) => (
   <a href={"/eventDetail/" + props.events._id}>
     <tr className="tr">
       <td className="eventDate">
-        <cite>{props.events.createdAt.split("-")[2]}</cite>
-        <cite>{MonthChanger(props.events.createdAt.split("-")[1])}</cite>
+        <cite>{props.events.eventDate.split("-")[2]}</cite>
+        <cite>{MonthChanger(props.events.eventDate.split("-")[1])}</cite>
       </td>
       <td>
         <p>{props.events.title}</p>

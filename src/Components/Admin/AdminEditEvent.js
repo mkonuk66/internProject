@@ -11,7 +11,7 @@ export default class AdminEditEvent extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
-    this.onChangeCreatedAt = this.onChangeCreatedAt.bind(this);
+    this.onChangeEventDate = this.onChangeEventDate.bind(this);
     this.onChangeEventImage = this.onChangeEventImage.bind(this);
     this.onChangeContent = this.onChangeContent.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -19,6 +19,7 @@ export default class AdminEditEvent extends Component {
     this.state = {
       title: "",
       createdAt: "",
+      eventDate: "",
       eventImage: "",
       content: "",
     };
@@ -46,9 +47,9 @@ export default class AdminEditEvent extends Component {
     });
   }
 
-  onChangeCreatedAt(e) {
+  onChangeEventDate(e) {
     this.setState({
-      createdAt: e.target.value,
+      eventDate: e.target.value,
     });
   }
 
@@ -69,7 +70,8 @@ export default class AdminEditEvent extends Component {
 
     const updateEvent = {
       title: document.getElementById("eventTitle").value,
-      createdAt: document.getElementById("eventDate").value,
+      eventDate: document.getElementById("eventDate").value,
+      createdAt: this.state.createdAt,
       eventImage: document.getElementById("eventImage").value,
       content: ckData,
     };
@@ -118,8 +120,8 @@ export default class AdminEditEvent extends Component {
               className="form-control"
               id="eventDate"
               placeholder="Etkinlik adını giriniz"
-              value={this.state.createdAt}
-              onChange={this.onChangeCreatedAt}
+              value={this.state.eventDate}
+              onChange={this.onChangeEventDate}
             />
           </div>
           <div className="form-group mt-4">

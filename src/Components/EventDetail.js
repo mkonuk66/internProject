@@ -17,7 +17,7 @@ const Detail = (props) => (
     <h2 className="display-6">{props.events.title}</h2>
 
     <span style={{ fontWeight: "300", fontStyle: "italic" }}>
-      Etkinlik Tarih : {props.events.createdAt}
+      Etkinlik Tarih : {props.events.eventDate}
     </span>
     <div style={{ fontSize: "30px" }}>
       {ReactHtmlParser(`${props.events.content}`)}
