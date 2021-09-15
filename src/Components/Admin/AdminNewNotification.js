@@ -84,12 +84,12 @@ export default class AdminNewNotification extends Component {
                 }}
               />
             </div>
-            <a
+            <p
               onClick={this.handleSubmit}
               className="btn btn-warning mb-2 mt-5"
             >
               Duyuru Ekle
-            </a>
+            </p>
           </div>
         </form>
       </div>

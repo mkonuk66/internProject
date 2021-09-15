@@ -10,14 +10,14 @@ router.route("/").get((req, res) => {
 router.route("/newNotification").post((req, res) => {
   const title = req.body.title;
   const createdAt = req.body.createdAt;
-  const noticeDate = req.body.noticeDate;
+  const notificationDate = req.body.notificationDate;
   const notificationImage = req.body.notificationImage;
   const content = req.body.content;
 
   const newNotification = new Notification({
     title,
     createdAt,
-    noticeDate,
+    notificationDate,
     notificationImage,
     content,
   });

@@ -1,6 +1,43 @@
 import React, { Component } from "react";
 
+const Notification = (props) => (
+  <tr>
+    <th scope="row">1</th>
+    <td>{props.notifications._id}</td>
+    <td>{props.notifications.title}</td>
+    <td>{props.notifications.notificationDate}</td>
+    <td>
+      <a href={"/adminEditNotification/" + props.notifications._id}>
+        {" "}
+        <i className="fa fa-pencil fa-2x adminIcon"></i>
+      </a>
+    </td>
+    <td>
+      <p
+        onClick={() => {
+          props.deleteNotification(props.notifications._id);
+          alert(props.notifications.title + " başlıklı etkinlik silindi.");
+        }}
+      >
+        {" "}
+        <i className="fa fa-trash fa-2x adminIcon"></i>
+      </p>
+    </td>
+  </tr>
+);
+
 export default class AdminNotification extends Component {
+  notificationList() {
+    return this.props.notifications.map((currentnotification) => {
+      return (
+        <Notification
+          notifications={currentnotification}
+          key={currentnotification._id}
+          deleteNotification={this.props.deleteNotification}
+        />
+      );
+    });
+  }
   render() {
     return (
       <div className="container mt-5">
@@ -26,63 +63,14 @@ export default class AdminNotification extends Component {
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Duyuru Id</th>
               <th scope="col">Duyuru Başlık</th>
-              <th scope="col">Duyuru İçerik</th>
               <th scope="col">Duyuru Tarih</th>
               <th scope="col">Güncelle</th>
               <th scope="col">Sil</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Duyuru 1</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>21.01.2015</td>
-              <td>
-                <i className="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i className="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Duyuru 2</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>21.01.2015</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>{" "}
-            <tr>
-              <th scope="row">3</th>
-              <td>Duyuru 3</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>21.01.2015</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>{" "}
-            <tr>
-              <th scope="row">4</th>
-              <td>Duyuru 4</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>21.01.2015</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-          </tbody>
+          <tbody>{this.notificationList()}</tbody>
         </table>
       </div>
     );
