@@ -9,7 +9,11 @@ const eventId = getEventId[2];
 
 const Detail = (props) => (
   <div className="container d-flex justify-content-center align-items-center text-center flex-column mt-5 mb-5">
-    <img src="/images/news/3.jpg" alt="eventDetail" className="mb-3" />
+    <img
+      src={props.events.eventImage[0].base64}
+      alt="eventDetail"
+      className="mb-3"
+    />
     <h2 className="display-6">{props.events.title}</h2>
 
     <span style={{ fontWeight: "300", fontStyle: "italic" }}>
