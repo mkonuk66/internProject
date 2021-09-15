@@ -18,7 +18,7 @@ export default class AdminNewEvents extends Component {
       .post("http://localhost:5000/admin/events/newEvent", newEvent)
       .then(
         (res) => localStorage.clear(),
-
+        window.open("/adminEvent", "_self"),
         alert("Etkinlik Başarıyla Eklendi.")
       )
       .catch((err) => alert("Hata: " + err));
