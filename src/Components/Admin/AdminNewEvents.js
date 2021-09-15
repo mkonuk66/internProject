@@ -1,16 +1,27 @@
 import React, { Component } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import FileBase64 from "react-file-base64";
 import axios from "axios";
 
 let ckData = "";
-
+let aData = "";
 export default class AdminNewEvents extends Component {
+  constructor() {
+    super();
+    this.state = {
+      files: [],
+    };
+  }
+  getFiles(files) {
+    this.setState({ files: files });
+    aData = files;
+  }
   handleSubmit(data) {
     const newEvent = {
       title: document.getElementById("eventTitle").value,
       createdAt: document.getElementById("eventDate").value,
-      eventImage: document.getElementById("eventImage").value,
+      eventImage: aData,
       content: ckData,
     };
     console.log(newEvent);
@@ -55,7 +66,7 @@ export default class AdminNewEvents extends Component {
           <div className="form-group mt-4">
             <label className=" mb-1">Etkinlik Fotoğraf</label>
             <br />
-            <input type="file" className="form-control-file" id="eventImage" />
+            <FileBase64 multiple={true} onDone={this.getFiles.bind(this)} />
           </div>
           <div className="form-group mt-4">
             <div className="App">

@@ -12,7 +12,7 @@ const EventSchema = new Schema({
     required: "Boş Bırakılamaz",
   },
   eventImage: {
-    type: String,
+    type: Object,
   },
   content: {
     type: String,
