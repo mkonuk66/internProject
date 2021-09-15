@@ -48,7 +48,10 @@ const Event = (props) => (
 
 export default class Events extends Component {
   eventList() {
-    return this.props.events.reverse().map((currentevent, i) => {
+    let sortedEvent = []
+      .concat(this.props.events)
+      .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+    return sortedEvent.map((currentevent, i) => {
       let lastIndex = this.props.events.length;
       if (lastIndex === i + lastIndex) {
         return <Event events={currentevent} key={currentevent._id} />;
