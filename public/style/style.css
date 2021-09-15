@@ -710,3 +710,8 @@ footer hr {
   cursor: pointer;
   color: #000;
 }
+@media (max-width: 960px) {
+  .adminDashboardButton {
+    width: 150px;
+  }
+}

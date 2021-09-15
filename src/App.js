@@ -3,19 +3,19 @@ import Routes from "./Route";
 import axios from "axios";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
-let isAuth1 = "";
-
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.deleteUser = this.deleteUser.bind(this);
     this.deleteEvent = this.deleteEvent.bind(this);
+    this.deleteNotification = this.deleteNotification.bind(this);
     this.state = { users: [], events: [], notifications: [] };
   }
 
   componentDidMount() {
     this.getUserDataFromDatabase();
     this.getEventDataFromDatabase();
+    this.getNotificationDataFromDatabase();
   }
 
   getUserDataFromDatabase() {
@@ -34,6 +34,17 @@ export default class App extends Component {
       .get("http://localhost:5000/admin/events/")
       .then((response) => {
         this.setState({ events: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  getNotificationDataFromDatabase() {
+    axios
+      .get("http://localhost:5000/admin/notifications/")
+      .then((response) => {
+        this.setState({ notifications: response.data });
       })
       .catch((error) => {
         console.log(error);
@@ -62,6 +73,18 @@ export default class App extends Component {
     });
   }
 
+  deleteNotification(id) {
+    axios
+      .delete("http://localhost:5000/admin/notifications/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
+
+    this.setState({
+      notifications: this.state.notifications.filter((el) => el._id !== id),
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -73,10 +96,15 @@ export default class App extends Component {
                   {...props}
                   users={this.state.users}
                   events={this.state.events}
+                  notifications={this.state.notifications}
                   getUserDataFromDatabase={this.getUserDataFromDatabase}
                   getEventDataFromDatabase={this.getEventDataFromDatabase}
+                  getNotificationDataFromDatabase={
+                    this.getNotificationDataFromDatabase
+                  }
                   deleteUser={this.deleteUser}
                   deleteEvent={this.deleteEvent}
+                  deleteNotification={this.deleteNotification}
                 />
               )}
             />

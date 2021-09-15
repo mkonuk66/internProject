@@ -93,7 +93,16 @@ export default class Routes extends Component {
           <PrivateRoute path="/adminDashboard" component={Dashboard} />
           <PrivateRoute
             path="/adminNotification"
-            component={AdminNotification}
+            render={(props) => (
+              <AdminNotification
+                {...props}
+                notifications={this.props.notifications}
+                getNotificationDataFromDatabase={
+                  this.props.getNotificationDataFromDatabase
+                }
+                deleteNotification={this.props.deleteNotification}
+              />
+            )}
           />
           <PrivateRoute
             path="/adminEvent"

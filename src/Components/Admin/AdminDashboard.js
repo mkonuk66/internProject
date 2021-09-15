@@ -16,31 +16,40 @@ export default class AdminDashboard extends Component {
         </div>
         <br />
         <div className="container d-flex justify-content-center align-items-center flex-column ">
-          <a href="/adminUser" className="btn btn-warning col-md-2 mt-3 btn-lg">
+          <a
+            href="/adminUser"
+            className="btn btn-warning col-md-2 mt-3 btn-lg adminDashboardButton"
+          >
             Yöneticiler
           </a>
           <a
             href="/adminEvent"
-            className="btn btn-warning col-md-2 mt-3 btn-lg"
+            className="btn btn-warning col-md-2 mt-3 btn-lg adminDashboardButton"
           >
             Etkinlinkler
           </a>
-          <a href="/adminNews" className="btn btn-warning col-md-2 mt-3 btn-lg">
+          <a
+            href="/adminNews"
+            className="btn btn-warning col-md-2 mt-3 btn-lg adminDashboardButton"
+          >
             Haberler
           </a>
           <a
             href="/adminNotification"
-            className="btn btn-warning col-md-2 mt-3 btn-lg"
+            className="btn btn-warning col-md-2 mt-3 btn-lg adminDashboardButton"
           >
             Duyurular
           </a>
           <a
             href="/adminSlider"
-            className="btn btn-warning col-md-2 mt-3 btn-lg"
+            className="btn btn-warning col-md-2 mt-3 btn-lg adminDashboardButton"
           >
             Slider
           </a>
-          <a href="/" className="btn btn-danger col-md-2 mt-3 btn-lg">
+          <a
+            href="/"
+            className="btn btn-danger col-md-2 mt-3 btn-lg adminDashboardButton mb-3"
+          >
             Çıkış Yap
           </a>
         </div>
