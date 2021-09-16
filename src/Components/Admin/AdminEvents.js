@@ -5,7 +5,7 @@ const Event = (props) => (
     <th scope="row">1</th>
     <td>{props.events._id}</td>
     <td>{props.events.title}</td>
-    <td>{props.events.createdAt}</td>
+    <td>{props.events.eventDate}</td>
     <td>
       <a href={"/adminEditEvent/" + props.events._id}>
         {" "}
