@@ -10,7 +10,11 @@ const eventId = getEventId[2];
 const Detail = (props) => (
   <div className="container d-flex justify-content-center align-items-center text-center flex-column mt-5 mb-5">
     <img
-      src={props.events.eventImage[0].base64}
+      src={
+        props.events.eventImage[0].base64 === null
+          ? "/images/news/1.jpg"
+          : props.events.eventImage[0].base64
+      }
       alt="eventDetail"
       className="mb-3"
     />

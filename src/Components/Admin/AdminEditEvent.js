@@ -2,17 +2,18 @@ import React, { Component } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
+import FileBase64 from "react-file-base64";
 
 const getEventId = window.location.pathname.split("/");
 const eventId = getEventId[2];
 let ckData = "";
+let imagePath = "";
 
 export default class AdminEditEvent extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeEventDate = this.onChangeEventDate.bind(this);
-    this.onChangeEventImage = this.onChangeEventImage.bind(this);
     this.onChangeContent = this.onChangeContent.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -20,7 +21,6 @@ export default class AdminEditEvent extends Component {
       title: "",
       createdAt: "",
       eventDate: "",
-      eventImage: "",
       content: "",
     };
   }
@@ -32,9 +32,10 @@ export default class AdminEditEvent extends Component {
         this.setState({
           title: response.data.title,
           createdAt: response.data.createdAt,
-          eventImage: response.data.eventImage,
+          eventDate: response.data.eventDate,
           content: response.data.content,
         });
+        imagePath = response.data.eventImage;
       })
       .catch(function (error) {
         console.log(error);
@@ -53,16 +54,14 @@ export default class AdminEditEvent extends Component {
     });
   }
 
-  onChangeEventImage(e) {
-    this.setState({
-      eventImage: e.target.value,
-    });
-  }
-
   onChangeContent(e) {
     this.setState({
       content: e.target.value,
     });
+  }
+
+  getFiles(files) {
+    imagePath = files;
   }
 
   onSubmit(e) {
@@ -72,7 +71,7 @@ export default class AdminEditEvent extends Component {
       title: document.getElementById("eventTitle").value,
       eventDate: document.getElementById("eventDate").value,
       createdAt: this.state.createdAt,
-      eventImage: document.getElementById("eventImage").value,
+      eventImage: imagePath,
       content: ckData,
     };
 
@@ -128,12 +127,7 @@ export default class AdminEditEvent extends Component {
           <div className="form-group mt-4">
             <label className=" mb-1">Etkinlik Fotoğraf</label>
             <br />
-            <input
-              type="file"
-              className="form-control-file"
-              id="eventImage"
-              onChange={this.onChangeEventImage}
-            />
+            <FileBase64 multiple={false} onDone={this.getFiles.bind(this)} />
           </div>
           <div className="form-group mt-4">
             <div className="App">
