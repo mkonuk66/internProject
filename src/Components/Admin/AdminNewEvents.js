@@ -7,14 +7,7 @@ import axios from "axios";
 let ckData = "";
 let imagePath = "";
 export default class AdminNewEvents extends Component {
-  constructor() {
-    super();
-    this.state = {
-      files: [],
-    };
-  }
   getFiles(files) {
-    this.setState({ files: files });
     imagePath = files;
   }
   handleSubmit() {
@@ -30,7 +23,10 @@ export default class AdminNewEvents extends Component {
     };
     console.log(newEvent);
     axios
-      .post("http://localhost:5000/admin/events/newEvent", newEvent)
+      .post(
+        "https://mkonuk-intern-site.herokuapp.com/admin/events/newEvent",
+        newEvent
+      )
       .then(
         (res) => localStorage.clear(),
         window.open("/adminEvent", "_self"),

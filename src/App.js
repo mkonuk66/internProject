@@ -20,7 +20,7 @@ export default class App extends Component {
 
   getUserDataFromDatabase() {
     axios
-      .get("http://localhost:5000/admin/users/")
+      .get("https://mkonuk-intern-site.herokuapp.com/admin/users/")
       .then((response) => {
         this.setState({ users: response.data });
       })
@@ -31,7 +31,7 @@ export default class App extends Component {
 
   getEventDataFromDatabase() {
     axios
-      .get("http://localhost:5000/admin/events/")
+      .get("https://mkonuk-intern-site.herokuapp.com/admin/events/")
       .then((response) => {
         this.setState({ events: response.data });
       })
@@ -42,7 +42,7 @@ export default class App extends Component {
 
   getNotificationDataFromDatabase() {
     axios
-      .get("http://localhost:5000/admin/notifications/")
+      .get("https://mkonuk-intern-site.herokuapp.com/admin/notifications/")
       .then((response) => {
         this.setState({ notifications: response.data });
       })
@@ -52,9 +52,11 @@ export default class App extends Component {
   }
 
   deleteUser(id) {
-    axios.delete("http://localhost:5000/admin/users/" + id).then((response) => {
-      console.log(response.data);
-    });
+    axios
+      .delete("https://mkonuk-intern-site.herokuapp.com/admin/users/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
 
     this.setState({
       users: this.state.users.filter((el) => el._id !== id),
@@ -63,7 +65,7 @@ export default class App extends Component {
 
   deleteEvent(id) {
     axios
-      .delete("http://localhost:5000/admin/events/" + id)
+      .delete("https://mkonuk-intern-site.herokuapp.com/admin/events/" + id)
       .then((response) => {
         console.log(response.data);
       });
@@ -75,7 +77,9 @@ export default class App extends Component {
 
   deleteNotification(id) {
     axios
-      .delete("http://localhost:5000/admin/notifications/" + id)
+      .delete(
+        "https://mkonuk-intern-site.herokuapp.com/admin/notifications/" + id
+      )
       .then((response) => {
         console.log(response.data);
       });

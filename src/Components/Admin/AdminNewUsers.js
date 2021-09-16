@@ -9,7 +9,10 @@ export default class AdminNewUsers extends Component {
     };
     console.log(newUser);
     axios
-      .post("http://localhost:5000/admin/users/newUser", newUser)
+      .post(
+        "https://mkonuk-intern-site.herokuapp.com/admin/users/newUser",
+        newUser
+      )
       .then((res) => console.log(res.data))
       .catch((err) => alert("Hata: " + err));
   }

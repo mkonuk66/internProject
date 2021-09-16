@@ -19,7 +19,7 @@ export default class EditExercise extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/admin/users/" + userId)
+      .get("https://mkonuk-intern-site.herokuapp.com/admin/users/" + userId)
       .then((response) => {
         this.setState({
           username: response.data.username,
@@ -53,7 +53,8 @@ export default class EditExercise extends Component {
 
     axios
       .post(
-        "http://localhost:5000/admin/users/updateUser/" + userId,
+        "https://mkonuk-intern-site.herokuapp.com/admin/users/updateUser/" +
+          userId,
         changeUser
       )
       .then(

@@ -1,40 +1,44 @@
 import React, { Component } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import FileBase64 from "react-file-base64";
 import axios from "axios";
 
-const getEventId = window.location.pathname.split("/");
-const eventId = getEventId[2];
+const getNotificationId = window.location.pathname.split("/");
+const notificationId = getNotificationId[2];
 let ckData = "";
+let imagePath = "";
 
-export default class AdminEditEvent extends Component {
+export default class AdminEditNotification extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
-    this.onChangeEventDate = this.onChangeEventDate.bind(this);
-    this.onChangeEventImage = this.onChangeEventImage.bind(this);
+    this.onChangeNotificationDate = this.onChangeNotificationDate.bind(this);
     this.onChangeContent = this.onChangeContent.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       title: "",
       createdAt: "",
-      eventDate: "",
-      eventImage: "",
+      notificationDate: "",
       content: "",
     };
   }
 
   componentDidMount() {
     axios
-      .get("https://mkonuk-intern-site.herokuapp.com/admin/events/" + eventId)
+      .get(
+        "https://mkonuk-intern-site.herokuapp.com/admin/notifications/" +
+          notificationId
+      )
       .then((response) => {
         this.setState({
           title: response.data.title,
           createdAt: response.data.createdAt,
-          eventImage: response.data.eventImage,
+          notificationDate: response.data.notificationDate,
           content: response.data.content,
         });
+        imagePath = response.data.notificationImage;
       })
       .catch(function (error) {
         console.log(error);
@@ -47,15 +51,9 @@ export default class AdminEditEvent extends Component {
     });
   }
 
-  onChangeEventDate(e) {
+  onChangeNotificationDate(e) {
     this.setState({
-      eventDate: e.target.value,
-    });
-  }
-
-  onChangeEventImage(e) {
-    this.setState({
-      eventImage: e.target.value,
+      notificationDate: e.target.value,
     });
   }
 
@@ -65,26 +63,30 @@ export default class AdminEditEvent extends Component {
     });
   }
 
+  getFiles(files) {
+    imagePath = files;
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
-    const updateEvent = {
-      title: document.getElementById("eventTitle").value,
-      eventDate: document.getElementById("eventDate").value,
+    const updateNotification = {
+      title: document.getElementById("notificationTitle").value,
+      notificationDate: document.getElementById("notificationDate").value,
       createdAt: this.state.createdAt,
-      eventImage: document.getElementById("eventImage").value,
+      notificationImage: imagePath,
       content: ckData,
     };
-
+    console.log(updateNotification);
     axios
       .post(
-        "https://mkonuk-intern-site.herokuapp.com/admin/events/updateEvent/" +
-          eventId,
-        updateEvent
+        "https://mkonuk-intern-site.herokuapp.com/admin/notifications/updateNotification/" +
+          notificationId,
+        updateNotification
       )
       .then(
-        (res) => window.open("/adminEvent", "_self"),
-        alert("Etkinlik başarıyla güncellendi")
+        (res) => window.open("/adminNotification", "_self"),
+        alert("Duyuru başarıyla güncellendi")
       )
       .catch((err) => alert(err));
   }
@@ -93,51 +95,46 @@ export default class AdminEditEvent extends Component {
       <div className="container mt-5">
         <div className="container d-flex justify-content-center align-items-center column mb-5">
           <a
-            href="/adminEvent"
+            href="/adminNotification"
             className="btn btn-warning  btn-lg m-5 mt-0 mb-0"
           >
             Geri Dön
           </a>{" "}
           <h2 className="d-flex justify-content-center display-2 m-5 mt-0 mb-0">
-            Etkinlikler Sayfası
+            Duyurular Sayfası
           </h2>
         </div>
         <form>
           <div className="form-group">
-            <label className=" mb-1">Etkinlik Adı</label>
+            <label className=" mb-1">Duyuru Adı</label>
             <input
-              type="email"
+              type="text"
               className="form-control"
-              id="eventTitle"
-              placeholder="Etkinlik adını giriniz"
+              id="notificationTitle"
+              placeholder="Duyuru adını giriniz"
               value={this.state.title}
               onChange={this.onChangeTitle}
             />
           </div>
           <div className="form-group">
-            <label className=" mb-1">Etkinlik Tarih</label>
+            <label className=" mb-1">Duyuru Tarih</label>
             <input
               type="date"
               className="form-control"
-              id="eventDate"
-              placeholder="Etkinlik adını giriniz"
-              value={this.state.eventDate}
-              onChange={this.onChangeEventDate}
+              id="notificationDate"
+              placeholder="Duyuru adını giriniz"
+              value={this.state.notificationDate}
+              onChange={this.onChangeNotificationDate}
             />
           </div>
           <div className="form-group mt-4">
-            <label className=" mb-1">Etkinlik Fotoğraf</label>
+            <label className=" mb-1">Duyuru Fotoğraf</label>
             <br />
-            <input
-              type="file"
-              className="form-control-file"
-              id="eventImage"
-              onChange={this.onChangeEventImage}
-            />
+            <FileBase64 multiple={false} onDone={this.getFiles.bind(this)} />
           </div>
           <div className="form-group mt-4">
             <div className="App">
-              <label className=" mb-1">Etkinlik İçerik</label>
+              <label className=" mb-1">Duyuru İçerik</label>
               <CKEditor
                 editor={ClassicEditor}
                 data={this.state.content}
@@ -150,13 +147,12 @@ export default class AdminEditEvent extends Component {
                 }}
               />
             </div>
-            <p
-              type="submit "
+            <a
               className="btn btn-warning mb-2 mt-5"
-              onClick={this.onSubmit}
+              onClick={(e) => this.onSubmit(e)}
             >
-              Etkinlik Güncelle
-            </p>
+              Duyuru Güncelle
+            </a>
           </div>
         </form>
       </div>
