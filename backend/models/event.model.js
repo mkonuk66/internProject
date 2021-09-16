@@ -5,7 +5,6 @@ const EventSchema = new Schema({
   title: {
     type: String,
     required: "Boş Bırakılamaz",
-    unique: true,
   },
   createdAt: {
     type: String,

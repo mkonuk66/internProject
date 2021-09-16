@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Events from "./Events";
 import News from "./News";
-import Notification from "./Notification";
+import Notifications from "./Notification";
 import Slider from "./Slider";
 import Style from "./Yobu";
 import Nav from "./Navbar";
@@ -15,7 +15,14 @@ export default class HomePage extends Component {
         <Slider />
         <Style />
         <div className="homepageBlocks">
-          <Notification /> <hr className="homepageHr" />
+          <Notifications
+            {...this.props}
+            notifications={this.props.notifications}
+            getNotificationsDataFromDatabase={
+              this.props.getNotificationsDataFromDatabase
+            }
+          />{" "}
+          <hr className="homepageHr" />
           <Events
             {...this.props}
             events={this.props.events}

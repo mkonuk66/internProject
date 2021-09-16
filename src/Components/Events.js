@@ -50,7 +50,7 @@ export default class Events extends Component {
   eventList() {
     let sortedEvent = []
       .concat(this.props.events)
-      .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+      .sort((a, b) => (a.eventDate < b.eventDate ? 1 : -1));
     return sortedEvent.map((currentevent, i) => {
       let lastIndex = this.props.events.length;
       if (lastIndex === i + lastIndex) {

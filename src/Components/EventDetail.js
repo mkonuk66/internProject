@@ -49,9 +49,7 @@ export default class EventDetail extends Component {
     return (
       <div>
         <Nav />
-
         <div className="pageDiv" />
-
         {this.eventsList()}
         <Footer />
       </div>

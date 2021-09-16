@@ -23,10 +23,12 @@ import AdminNewUsers from "./Components/Admin/AdminNewUsers";
 import AdminEditUser from "./Components/Admin/AdminEditUser";
 import AdminEditEvent from "./Components/Admin/AdminEditEvent";
 import AdminEditNotification from "./Components/Admin/AdminEditNotification";
+import NotificationDetail from "./Components/NotificationDetail";
 
 const PrivateRoute = (props1) => {
   const location = useLocation();
   let isAuthRoute = true;
+
   return isAuthRoute ? (
     <Route {...props1} />
   ) : (
@@ -50,6 +52,10 @@ export default class Routes extends Component {
             render={(props) => (
               <HomePage
                 {...props}
+                getNotificationDataFromDatabase={
+                  this.props.getNotificationDataFromDatabase
+                }
+                notifications={this.props.notifications}
                 events={this.props.events}
                 getEventDataFromDatabase={this.props.getEventDataFromDatabase}
               />
@@ -65,7 +71,30 @@ export default class Routes extends Component {
               />
             )}
           />
-          <Route path="/notification" component={Notification} />
+          <Route
+            path="/notificationDetail/"
+            render={(props) => (
+              <NotificationDetail
+                {...props}
+                notifications={this.props.notifications}
+                getNotificationDataFromDatabase={
+                  this.props.getNotificationDataFromDatabase
+                }
+              />
+            )}
+          />
+          <Route
+            path="/notification"
+            render={(props) => (
+              <Notification
+                {...props}
+                notifications={this.props.notifications}
+                getNotificationDataFromDatabase={
+                  this.props.getNotificationDataFromDatabase
+                }
+              />
+            )}
+          />
           <Route
             path="/event"
             render={(props) => (

@@ -1,68 +1,92 @@
 import React, { Component } from "react";
 
+function MonthChanger(a) {
+  switch (a) {
+    case "01":
+      return (a = "Ocak");
+    case "02":
+      return (a = "Şubat");
+    case "03":
+      return (a = "Mart");
+    case "04":
+      return (a = "Nisan");
+    case "05":
+      return (a = "Mayıs");
+    case "06":
+      return (a = "Haziran");
+    case "07":
+      return (a = "Temmuz");
+    case "08":
+      return (a = "Ağustos");
+    case "09":
+      return (a = "Eylül");
+    case "10":
+      return (a = "Ekim");
+    case "11":
+      return (a = "Kasım");
+    case "12":
+      return (a = "Aralık");
+    default:
+      a = " ";
+  }
+}
+
+const DetailNotice = (props) => (
+  <a href={"/notificationDetail/" + props.notifications._id}>
+    <tr className="tr">
+      <td className="eventDate">
+        <cite>{props.notifications.notificationDate.split("-")[2]}</cite>
+        <cite>
+          {MonthChanger(props.notifications.notificationDate.split("-")[1])}
+        </cite>
+      </td>
+      <td>
+        <p>{props.notifications.title}</p>
+      </td>
+    </tr>
+    <br />
+  </a>
+);
+
 export default class Notification extends Component {
+  notificationList() {
+    let sortedNotification = []
+      .concat(this.props.notifications)
+      .sort((a, b) => (a.notificationDate < b.notificationDate ? 1 : -1));
+    let lastIndex = sortedNotification.length;
+    return sortedNotification.map((currentnotifications, i) => {
+      if (lastIndex === i + lastIndex) {
+        return (
+          <DetailNotice
+            notifications={currentnotifications}
+            key={currentnotifications._id}
+          />
+        );
+      } else if (lastIndex + 1 === i + lastIndex) {
+        return (
+          <DetailNotice
+            notifications={currentnotifications}
+            key={currentnotifications._id}
+          />
+        );
+      } else if (lastIndex + 2 === i + lastIndex) {
+        return (
+          <DetailNotice
+            notifications={currentnotifications}
+            key={currentnotifications._id}
+          />
+        );
+      }
+    });
+  }
   render() {
     return (
       <div>
         <h4 className="noticeTitle">Duyurular</h4>
 
         <table className="notice">
-          <a
-            href="https://bozok.edu.tr/bidb/duyuru/ekim-ayi--siber-guvenlik-farkindalik-ayi,tr-2083.aspx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <tr className="tr">
-              <td className="noticeDate">
-                <cite>25</cite>
-                <cite>Ağustos</cite>
-              </td>
-              <td>
-                <p>Ekim Ayı – Siber Güvenlik Farkındalık Ayı</p>
-              </td>
-            </tr>
-          </a>
-
           <br />
-          <a
-            href="https://bozok.edu.tr/bidb/duyuru/yozgat-bozok-universitesi-yeni-e-posta-sistemine-gecis-hakkinda-duzeltme,tr-2039.aspx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <tr>
-              <td className="noticeDate">
-                <cite>24</cite>
-                <cite>Ağustos</cite>
-              </td>
-              <td>
-                <p>
-                  Yozgat Bozok Üniversitesi Yeni E-Posta Sistemine Geçiş
-                  Hakkında (Düzeltme)
-                </p>
-              </td>
-            </tr>
-          </a>
-
-          <br />
-          <a
-            href="https://bozok.edu.tr/bidb/duyuru/universitemiz-antivirus-programi-hakkinda,tr-2025.aspx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <tr>
-              <td className="noticeDate">
-                <cite>23</cite>
-                <cite>Ağustos</cite>
-              </td>
-
-              <td>
-                <p>Üniversitemiz Antivirüs Programı Hakkında</p>
-              </td>
-            </tr>
-          </a>
-
+          {this.notificationList()}
           <tr>
             <td></td>
             <td></td>
