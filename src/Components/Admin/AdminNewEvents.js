@@ -5,28 +5,28 @@ import FileBase64 from "react-file-base64";
 import axios from "axios";
 
 let ckData = "";
-let aData = "";
+let imagePath = "";
 export default class AdminNewEvents extends Component {
-  constructor() {
-    super();
-    this.state = {
-      files: [],
-    };
-  }
   getFiles(files) {
-    this.setState({ files: files });
-    aData = files;
+    imagePath = files;
   }
-  handleSubmit(data) {
+  handleSubmit() {
+    let date = new Date();
     const newEvent = {
       title: document.getElementById("eventTitle").value,
-      createdAt: document.getElementById("eventDate").value,
-      eventImage: aData,
+      createdAt: `${date.getDate()}.${
+        date.getMonth() + 1
+      }.${date.getFullYear()}`,
+      eventDate: document.getElementById("eventDate").value,
+      eventImage: imagePath,
       content: ckData,
     };
     console.log(newEvent);
     axios
-      .post("http://localhost:5000/admin/events/newEvent", newEvent)
+      .post(
+        "https://mkonuk-intern-site.herokuapp.com/admin/events/newEvent",
+        newEvent
+      )
       .then(
         (res) => localStorage.clear(),
         window.open("/adminEvent", "_self"),

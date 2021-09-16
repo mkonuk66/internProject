@@ -5,7 +5,6 @@ const NotificationSchema = new Schema({
   title: {
     type: String,
     required: "Boş Bırakılamaz",
-    unique: true,
   },
   createdAt: {
     type: String,
@@ -15,7 +14,7 @@ const NotificationSchema = new Schema({
     type: String,
   },
   notificationImage: {
-    type: String,
+    type: Object,
   },
   content: {
     type: String,

@@ -39,8 +39,8 @@ const Event = (props) => (
     {" "}
     <tr>
       <td className="eventDate">
-        <cite>{props.events.createdAt.split("-")[2]}</cite>
-        <cite>{MonthChanger(props.events.createdAt.split("-")[1])}</cite>
+        <cite>{props.events.eventDate.split("-")[2]}</cite>
+        <cite>{MonthChanger(props.events.eventDate.split("-")[1])}</cite>
       </td>
       <td>
         <p className="allEventP">{props.events.title}</p>

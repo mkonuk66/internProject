@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import FileBase64 from "react-file-base64";
 import axios from "axios";
 
 let ckData = "";
-
+let imagePath = "";
 export default class AdminNewNotification extends Component {
-  handleSubmit(data) {
+  getFiles(files) {
+    imagePath = files;
+  }
+
+  handleSubmit() {
     let date = new Date();
     const newNotification = {
       title: document.getElementById("notificationTitle").value,
@@ -14,13 +19,13 @@ export default class AdminNewNotification extends Component {
         date.getMonth() + 1
       }.${date.getFullYear()}`,
       notificationDate: document.getElementById("notificationDate").value,
-      notificationImage: document.getElementById("notificationImage").value,
+      notificationImage: imagePath,
       content: ckData,
     };
     console.log(newNotification);
     axios
       .post(
-        "http://localhost:5000/admin/notifications/newNotification/",
+        "https://mkonuk-intern-site.herokuapp.com/admin/notifications/newNotification/",
         newNotification
       )
       .then(
@@ -29,6 +34,7 @@ export default class AdminNewNotification extends Component {
       )
       .catch((err) => alert("Hata: " + err));
   }
+
   render() {
     return (
       <div className="container mt-5">
@@ -63,11 +69,7 @@ export default class AdminNewNotification extends Component {
           <div className="form-group mt-4">
             <label className=" mb-1">Duyuru Fotoğraf</label>
             <br />
-            <input
-              type="file"
-              className="form-control-file"
-              id="notificationImage"
-            />
+            <FileBase64 multiple={false} onDone={this.getFiles.bind(this)} />
           </div>
           <div className="form-group mt-4">
             <div className="App">
