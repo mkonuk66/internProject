@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const EventSchema = new Schema({
+const NewsSchema = new Schema({
   title: {
     type: String,
     required: "Boş Bırakılamaz",
@@ -10,11 +10,11 @@ const EventSchema = new Schema({
     type: String,
     required: "Boş Bırakılamaz",
   },
-  eventDate: {
+  newsDate: {
     type: String,
     required: "Boş Bırakılamaz",
   },
-  eventImage: {
+  newsImage: {
     type: Object,
   },
   content: {
@@ -23,4 +23,4 @@ const EventSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Event", EventSchema);
+module.exports = mongoose.model("News", NewsSchema);

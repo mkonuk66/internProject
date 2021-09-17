@@ -52,7 +52,10 @@ const Event = (props) => (
 
 export default class AllEvents extends Component {
   eventList() {
-    return this.props.events.reverse().map((currentevent, i) => {
+    let sortedEvent = []
+      .concat(this.props.events)
+      .sort((a, b) => (a.eventDate < b.eventDate ? 1 : -1));
+    return sortedEvent.map((currentevent, i) => {
       return <Event events={currentevent} key={currentevent._id} />;
     });
   }
