@@ -1,8 +1,40 @@
 import React, { Component } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import FileBase64 from "react-file-base64";
+import axios from "axios";
 
+let ckData = "";
+let imagePath = "";
 export default class AdminNewNews extends Component {
+  getFiles(files) {
+    imagePath = files;
+  }
+
+  handleSubmit() {
+    let date = new Date();
+    const newNews = {
+      title: document.getElementById("newsTitle").value,
+      createdAt: `${date.getDate()}.${
+        date.getMonth() + 1
+      }.${date.getFullYear()}`,
+      newsDate: document.getElementById("newsDate").value,
+      newsImage: imagePath,
+      content: ckData,
+    };
+    console.log(newNews);
+    axios
+      .post(
+        "https://mkonuk-intern-site.herokuapp.com/admin/news/newNews",
+        newNews
+      )
+      .then(
+        (res) => localStorage.clear(),
+        window.open("/adminNews", "_self"),
+        alert("Haber Başarıyla Eklendi.")
+      )
+      .catch((err) => alert("Hata: " + err));
+  }
   render() {
     return (
       <div className="container mt-5">
@@ -21,16 +53,20 @@ export default class AdminNewNews extends Component {
           <div className="form-group">
             <label className="mb-1">Haber Adı</label>
             <input
-              type="email"
+              type="text"
               className="form-control"
               id="newsTitle"
               placeholder="Etkinlik adını giriniz"
             />
           </div>
+          <div className="form-group">
+            <label className=" mb-1">Haber Tarihi</label>
+            <input type="date" className="form-control" id="newsDate" />
+          </div>
           <div className="form-group mt-4">
             <label className="mb-1">Haber Fotoğraf</label>
             <br />
-            <input type="file" className="form-control-file" id="newsImage" />
+            <FileBase64 multiple={false} onDone={this.getFiles.bind(this)} />
           </div>
           <div className="form-group mt-4">
             <div className="App">
@@ -38,13 +74,15 @@ export default class AdminNewNews extends Component {
               <CKEditor
                 editor={ClassicEditor}
                 onBlur={(event, editor) => {
-                  const data = editor.getData();
-                  const htmlData = JSON.stringify(data);
-                  console.log(htmlData);
+                  const rawData = JSON.stringify(editor.getData());
+                  let process = rawData.split('"');
+                  process.pop();
+                  process.shift();
+                  ckData = process.join(" ");
                 }}
               />
             </div>
-            <a href="/adminNews" class="btn btn-warning mb-2 mt-5">
+            <a class="btn btn-warning mb-2 mt-5" onClick={this.handleSubmit}>
               Haber Ekle
             </a>
           </div>
