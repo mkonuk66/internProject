@@ -9,13 +9,14 @@ export default class App extends Component {
     this.deleteUser = this.deleteUser.bind(this);
     this.deleteEvent = this.deleteEvent.bind(this);
     this.deleteNotification = this.deleteNotification.bind(this);
-    this.state = { users: [], events: [], notifications: [] };
+    this.state = { users: [], events: [], notifications: [], news: [] };
   }
 
   componentDidMount() {
     this.getUserDataFromDatabase();
     this.getEventDataFromDatabase();
     this.getNotificationDataFromDatabase();
+    this.getNewsDataFromDatabase();
   }
 
   getUserDataFromDatabase() {
@@ -45,6 +46,17 @@ export default class App extends Component {
       .get("https://mkonuk-intern-site.herokuapp.com/admin/notifications/")
       .then((response) => {
         this.setState({ notifications: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  getNewsDataFromDatabase() {
+    axios
+      .get("https://mkonuk-intern-site.herokuapp.com/admin/news/")
+      .then((response) => {
+        this.setState({ news: response.data });
       })
       .catch((error) => {
         console.log(error);
@@ -89,6 +101,18 @@ export default class App extends Component {
     });
   }
 
+  deleteNews(id) {
+    axios
+      .delete("https://mkonuk-intern-site.herokuapp.com/admin/news/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
+
+    this.setState({
+      news: this.state.news.filter((el) => el._id !== id),
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -101,14 +125,17 @@ export default class App extends Component {
                   users={this.state.users}
                   events={this.state.events}
                   notifications={this.state.notifications}
+                  news={this.state.news}
                   getUserDataFromDatabase={this.getUserDataFromDatabase}
                   getEventDataFromDatabase={this.getEventDataFromDatabase}
                   getNotificationDataFromDatabase={
                     this.getNotificationDataFromDatabase
                   }
+                  getNewsDataFromDatabase={this.getNewsDataFromDatabase}
                   deleteUser={this.deleteUser}
                   deleteEvent={this.deleteEvent}
                   deleteNotification={this.deleteNotification}
+                  deleteNews={this.deleteNews}
                 />
               )}
             />
