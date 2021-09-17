@@ -8,12 +8,16 @@ router.route("/").get((req, res) => {
 });
 
 router.route("/newUser").post((req, res) => {
+  const name = req.body.name;
   const username = req.body.username;
   const password = req.body.password;
+  const isAuth = req.body.isAuth;
 
   const newUser = new User({
+    name,
     username,
     password,
+    isAuth,
   });
 
   newUser
@@ -37,8 +41,10 @@ router.route("/:id").delete((req, res) => {
 router.route("/updateUser/:id").post((req, res) => {
   User.findById(req.params.id)
     .then((users) => {
+      users.name = req.body.name;
       users.username = req.body.username;
       users.password = req.body.password;
+      users.isAuth = req.body.isAuth;
 
       users
         .save()
