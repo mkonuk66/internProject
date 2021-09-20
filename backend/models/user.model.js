@@ -14,9 +14,6 @@ const UserSchema = new Schema({
     type: String,
     required: "Boş Bırakılamaz",
   },
-  isAuth: {
-    type: String,
-  },
 });
 
 module.exports = mongoose.model("User", UserSchema);

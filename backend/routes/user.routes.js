@@ -11,13 +11,11 @@ router.route("/newUser").post((req, res) => {
   const name = req.body.name;
   const username = req.body.username;
   const password = req.body.password;
-  const isAuth = req.body.isAuth;
 
   const newUser = new User({
     name,
     username,
     password,
-    isAuth,
   });
 
   newUser
@@ -44,7 +42,6 @@ router.route("/updateUser/:id").post((req, res) => {
       users.name = req.body.name;
       users.username = req.body.username;
       users.password = req.body.password;
-      users.isAuth = req.body.isAuth;
 
       users
         .save()
