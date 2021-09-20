@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
-import Nav from "./Navbar";
-import Footer from "./Footer";
 
 function MonthChanger(a) {
   switch (a) {
@@ -70,7 +68,6 @@ export default class AllNotification extends Component {
   render() {
     return (
       <div>
-        <Nav />
         <div className="pageDiv"></div>
         <div>
           <Container>
@@ -79,7 +76,6 @@ export default class AllNotification extends Component {
             <table className="notice">{this.notificationList()}</table>
           </Container>
         </div>
-        <Footer />
       </div>
     );
   }

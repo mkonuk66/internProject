@@ -12,15 +12,16 @@ const News = (props) => (
       </a>
     </td>
     <td>
-      <a
+      <button
         onClick={() => {
           props.deleteNews(props.news._id);
           alert(props.news.title + " adlı haber silindi.");
         }}
+        style={{ border: "0px", backgroundColor: "transparent" }}
       >
         {" "}
         <i className="fa fa-trash fa-2x adminIcon"></i>
-      </a>
+      </button>
     </td>
   </tr>
 );

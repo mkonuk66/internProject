@@ -30,8 +30,8 @@ export default class AdminNewNews extends Component {
       )
       .then(
         (res) => localStorage.clear(),
-        window.open("/adminNews", "_self"),
-        alert("Haber Başarıyla Eklendi.")
+        alert("Haber Başarıyla Eklendi."),
+        window.open("/adminNews", "_self")
       )
       .catch((err) => alert("Hata: " + err));
   }
@@ -82,9 +82,12 @@ export default class AdminNewNews extends Component {
                 }}
               />
             </div>
-            <a class="btn btn-warning mb-2 mt-5" onClick={this.handleSubmit}>
+            <element
+              class="btn btn-warning mb-2 mt-5"
+              onClick={this.handleSubmit}
+            >
               Haber Ekle
-            </a>
+            </element>
           </div>
         </form>
       </div>

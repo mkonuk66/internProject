@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import Nav from "./Navbar";
-import Footer from "./Footer";
 
 export default class News extends Component {
   render() {
     return (
       <div>
-        <Nav />
         <div className="pageDiv"></div>
         <div>
           <h2 className="newsTitle">Haberler</h2>
@@ -213,8 +210,6 @@ export default class News extends Component {
             </div>
           </div>
         </div>
-
-        <Footer />
       </div>
     );
   }

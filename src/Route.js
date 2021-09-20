@@ -24,6 +24,8 @@ import AdminEditUser from "./Components/Admin/AdminEditUser";
 import AdminEditEvent from "./Components/Admin/AdminEditEvent";
 import AdminEditNotification from "./Components/Admin/AdminEditNotification";
 import NotificationDetail from "./Components/NotificationDetail";
+import Nav from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 const PrivateRoute = (props1) => {
   const location = useLocation();
@@ -50,64 +52,111 @@ export default class Routes extends Component {
             exact
             path="/"
             render={(props) => (
-              <HomePage
-                {...props}
-                getNotificationDataFromDatabase={
-                  this.props.getNotificationDataFromDatabase
-                }
-                notifications={this.props.notifications}
-                events={this.props.events}
-                getEventDataFromDatabase={this.props.getEventDataFromDatabase}
-              />
+              <div>
+                <Nav />
+                <HomePage
+                  {...props}
+                  getNotificationDataFromDatabase={
+                    this.props.getNotificationDataFromDatabase
+                  }
+                  notifications={this.props.notifications}
+                  events={this.props.events}
+                  getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+                />
+                <Footer />
+              </div>
             )}
           />{" "}
           <Route
             path="/eventDetail"
             render={(props) => (
-              <EventDetail
-                {...props}
-                events={this.props.events}
-                getEventDataFromDatabase={this.props.getEventDataFromDatabase}
-              />
+              <div>
+                <Nav />
+                <EventDetail
+                  {...props}
+                  events={this.props.events}
+                  getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+                />
+                <Footer />
+              </div>
             )}
           />
           <Route
             path="/notificationDetail/"
             render={(props) => (
-              <NotificationDetail
-                {...props}
-                notifications={this.props.notifications}
-                getNotificationDataFromDatabase={
-                  this.props.getNotificationDataFromDatabase
-                }
-              />
+              <div>
+                <Nav />
+                <NotificationDetail
+                  {...props}
+                  notifications={this.props.notifications}
+                  getNotificationDataFromDatabase={
+                    this.props.getNotificationDataFromDatabase
+                  }
+                />
+                <Footer />
+              </div>
             )}
           />
           <Route
             path="/notification"
             render={(props) => (
-              <Notification
-                {...props}
-                notifications={this.props.notifications}
-                getNotificationDataFromDatabase={
-                  this.props.getNotificationDataFromDatabase
-                }
-              />
+              <div>
+                <Nav />
+                <Notification
+                  {...props}
+                  notifications={this.props.notifications}
+                  getNotificationDataFromDatabase={
+                    this.props.getNotificationDataFromDatabase
+                  }
+                />
+                <Footer />
+              </div>
             )}
           />
           <Route
             path="/event"
             render={(props) => (
-              <Events
-                {...props}
-                events={this.props.events}
-                getEventDataFromDatabase={this.props.getEventDataFromDatabase}
-              />
+              <div>
+                <Nav />
+                <Events
+                  {...props}
+                  events={this.props.events}
+                  getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+                />
+                <Footer />
+              </div>
             )}
           />
-          <Route path="/news" component={News} />
-          <Route path="/comingSoon" component={Coming} />
-          <Route path="/contact" component={Contact} />
+          <Route
+            path="/news"
+            render={() => (
+              <div>
+                <Nav />
+                <News />
+                <Footer />
+              </div>
+            )}
+          />
+          <Route
+            path="/comingSoon"
+            render={() => (
+              <div>
+                <Nav />
+                <Coming />
+                <Footer />
+              </div>
+            )}
+          />
+          <Route
+            path="/contact"
+            render={() => (
+              <div>
+                <Nav />
+                <Contact />
+                <Footer />
+              </div>
+            )}
+          />
           <Route
             path="/admin"
             render={(props) => (
@@ -182,7 +231,15 @@ export default class Routes extends Component {
           <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
           <PrivateRoute path="/adminSlider" component={AdminSlider} />
           <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />
-          <Route component={NotFound} />
+          <Route
+            render={() => (
+              <div>
+                <Nav />
+                <NotFound />
+                <Footer />
+              </div>
+            )}
+          />
         </Switch>
       </div>
     );

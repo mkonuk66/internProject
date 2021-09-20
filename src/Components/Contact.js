@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import Nav from "./Navbar";
-import Footer from "./Footer";
 
 export default class Contact extends Component {
   render() {
     return (
       <div>
-        <Nav />
         <div className="container">
           {" "}
           <div className="pageDiv" />
@@ -106,7 +103,6 @@ export default class Contact extends Component {
             ></iframe>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }

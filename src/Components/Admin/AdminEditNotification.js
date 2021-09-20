@@ -147,12 +147,12 @@ export default class AdminEditNotification extends Component {
                 }}
               />
             </div>
-            <a
+            <element
               className="btn btn-warning mb-2 mt-5"
               onClick={(e) => this.onSubmit(e)}
             >
               Duyuru Güncelle
-            </a>
+            </element>
           </div>
         </form>
       </div>

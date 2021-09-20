@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import ReactHtmlParser from "react-html-parser";
-import Footer from "./Footer";
-import Nav from "./Navbar";
-import NotFound from "./NotFound";
 
 const getEventId = window.location.pathname.split("/");
 const eventId = getEventId[2];
@@ -41,17 +38,14 @@ export default class EventDetail extends Component {
       if (currentevent._id === eventId) {
         return <Detail events={currentevent} key={currentevent._id} />;
       } else {
-        <NotFound />;
       }
     });
   }
   render() {
     return (
       <div>
-        <Nav />
         <div className="pageDiv" />
         {this.eventsList()}
-        <Footer />
       </div>
     );
   }

@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import ReactHtmlParser from "react-html-parser";
-import Footer from "./Footer";
-import Nav from "./Navbar";
-import NotFound from "./NotFound";
 
 const getNotificationId = window.location.pathname.split("/");
 const notificationId = getNotificationId[2];
@@ -45,18 +42,15 @@ export default class NotificationDetail extends Component {
             key={currentnotifications._id}
           />
         );
-      } else {
-        <NotFound />;
       }
     });
   }
+
   render() {
     return (
       <div>
-        <Nav />
         <div className="pageDiv" />
         {this.notificationsList()}
-        <Footer />
       </div>
     );
   }

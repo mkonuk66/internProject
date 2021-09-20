@@ -63,9 +63,12 @@ export default class AdminNewUsers extends Component {
               placeholder="Yönetici şifre giriniz"
             />
           </div>
-          <a className="btn btn-warning mb-2 mt-5" onClick={this.handleSubmit}>
+          <element
+            className="btn btn-warning mb-2 mt-5"
+            onClick={this.handleSubmit}
+          >
             Yönetici Ekle
-          </a>
+          </element>
         </form>
       </div>
     );
