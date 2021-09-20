@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Users = (props) => (
   <tr>
     <td>{props.users._id}</td>
+    <td>{props.users.name}</td>
     <td>{props.users.username}</td>
     <td>{props.users.password}</td>
     <td>
@@ -59,8 +60,9 @@ export default class UserList extends Component {
           <thead>
             <tr>
               <th scope="col">Yönetici Id</th>
-              <th scope="col">Kullanıcı Adı</th>
-              <th scope="col">Şifre</th>
+              <th scope="col">Yönetici Ad Soyad</th>
+              <th scope="col">Yönetici Kullanıcı Adı</th>
+              <th scope="col">Yönetici Şifresi</th>
               <th scope="col">Güncelle</th>
               <th scope="col">Sil</th>
             </tr>

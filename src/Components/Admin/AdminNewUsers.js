@@ -4,6 +4,7 @@ import axios from "axios";
 export default class AdminNewUsers extends Component {
   handleSubmit(e) {
     const newUser = {
+      name: document.getElementById("name").value,
       username: document.getElementById("username").value,
       password: document.getElementById("password").value,
     };
@@ -32,9 +33,18 @@ export default class AdminNewUsers extends Component {
         </div>
         <form className="text-center">
           <div className="form-group mb-3">
+            <label className="mb-1">Yönetici Adı Soyadı</label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              placeholder="Yönetici ad ve soyad giriniz"
+            />
+          </div>
+          <div className="form-group mb-3">
             <label className="mb-1">Yönetici Kullanıcı Adı</label>
             <input
-              type="email"
+              type="text"
               className="form-control"
               id="username"
               placeholder="Yönetici kullanıcı adını giriniz"
@@ -43,7 +53,7 @@ export default class AdminNewUsers extends Component {
           <div className="form-group">
             <label className="mb-1">Yönetici Şifre</label>
             <input
-              type="email"
+              type="text"
               className="form-control"
               id="password"
               placeholder="Yönetici şifre giriniz"

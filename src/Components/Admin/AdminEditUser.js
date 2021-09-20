@@ -7,11 +7,13 @@ const userId = getUserId[2];
 export default class EditExercise extends Component {
   constructor(props) {
     super(props);
+    this.onChangeName = this.onChangeName.bind(this);
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
+      name: "",
       username: "",
       password: "",
     };
@@ -22,6 +24,7 @@ export default class EditExercise extends Component {
       .get("https://mkonuk-intern-site.herokuapp.com/admin/users/" + userId)
       .then((response) => {
         this.setState({
+          name: response.data.name,
           username: response.data.username,
           password: response.data.password,
         });
@@ -29,6 +32,12 @@ export default class EditExercise extends Component {
       .catch(function (error) {
         console.log(error);
       });
+  }
+
+  onChangeName(e) {
+    this.setState({
+      name: e.target.value,
+    });
   }
 
   onChangeUsername(e) {
@@ -47,6 +56,7 @@ export default class EditExercise extends Component {
     e.preventDefault();
 
     const changeUser = {
+      name: document.getElementById("name").value,
       username: document.getElementById("username").value,
       password: document.getElementById("password").value,
     };
@@ -79,6 +89,17 @@ export default class EditExercise extends Component {
           </h2>
         </div>
         <form onSubmit={this.onSubmit}>
+          <div className="form-group mt-3">
+            <label>Yönetici Ad Soyad: </label>
+            <input
+              type="text"
+              className="form-control"
+              required
+              id="name"
+              value={this.state.name}
+              onChange={this.onChangeName}
+            />
+          </div>
           <div className="form-group mt-3">
             <label>Yönetici Kullanıcı Adı: </label>
             <input
