@@ -9,6 +9,7 @@ export default class App extends Component {
     this.deleteUser = this.deleteUser.bind(this);
     this.deleteEvent = this.deleteEvent.bind(this);
     this.deleteNotification = this.deleteNotification.bind(this);
+    this.deleteNews = this.deleteNews.bind(this);
     this.state = { users: [], events: [], notifications: [], news: [] };
   }
 

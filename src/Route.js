@@ -168,7 +168,17 @@ export default class Routes extends Component {
           />
           <PrivateRoute path="/adminEventNew" component={AdminNewEvents} />
           <PrivateRoute path="/adminEditEvent" component={AdminEditEvent} />
-          <PrivateRoute path="/adminNews" component={AdminNews} />
+          <PrivateRoute
+            path="/adminNews"
+            render={(props) => (
+              <AdminNews
+                {...props}
+                news={this.props.news}
+                getNewsDataFromDatabase={this.props.getNewsDataFromDatabase}
+                deleteNews={this.props.deleteNews}
+              />
+            )}
+          />
           <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
           <PrivateRoute path="/adminSlider" component={AdminSlider} />
           <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />

@@ -14,7 +14,11 @@ export default class AdminNewUsers extends Component {
         "https://mkonuk-intern-site.herokuapp.com/admin/users/newUser",
         newUser
       )
-      .then((res) => console.log(res.data))
+      .then(
+        (res) => console.log(res.data),
+        alert("Yönetici başarıyla eklendi"),
+        window.open("/adminUser", "_self")
+      )
       .catch((err) => alert("Hata: " + err));
   }
   render() {
@@ -59,11 +63,7 @@ export default class AdminNewUsers extends Component {
               placeholder="Yönetici şifre giriniz"
             />
           </div>
-          <a
-            href="/adminUser"
-            className="btn btn-warning mb-2 mt-5"
-            onClick={this.handleSubmit}
-          >
+          <a className="btn btn-warning mb-2 mt-5" onClick={this.handleSubmit}>
             Yönetici Ekle
           </a>
         </form>

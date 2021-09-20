@@ -1,6 +1,42 @@
 import React, { Component } from "react";
 
+const News = (props) => (
+  <tr>
+    <td>{props.news._id}</td>
+    <td>{props.news.title}</td>
+    <td>{props.news.newsDate}</td>
+    <td>
+      <a href={"/adminNewsEdit/" + props.news._id}>
+        {" "}
+        <i className="fa fa-pencil fa-2x adminIcon"></i>
+      </a>
+    </td>
+    <td>
+      <a
+        onClick={() => {
+          props.deleteNews(props.news._id);
+          alert(props.news.title + " adlı haber silindi.");
+        }}
+      >
+        {" "}
+        <i className="fa fa-trash fa-2x adminIcon"></i>
+      </a>
+    </td>
+  </tr>
+);
+
 export default class AdminNews extends Component {
+  newsList() {
+    return this.props.news.map((currentnews) => {
+      return (
+        <News
+          news={currentnews}
+          key={currentnews._id}
+          deleteNews={this.props.deleteNews}
+        />
+      );
+    });
+  }
   render() {
     return (
       <div className="container mt-5">
@@ -23,63 +59,14 @@ export default class AdminNews extends Component {
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Haber Fotoğraf</th>
+              <th scope="col">Haber Id</th>
               <th scope="col">Haber Başlık</th>
-              <th scope="col">Haber İçerik</th>
+              <th scope="col">Haber Tarih</th>
               <th scope="col">Güncelle</th>
               <th scope="col">Sil</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>./images/news/1.jpg</td>
-              <td>Haber 1</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>./images/news/2.jpg</td>
-              <td>Haber 2</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>./images/news/3.jpg</td>
-              <td>Haber 3</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>./images/news/4.jpg</td>
-              <td>Haber 4</td>
-              <td>Lorem ipsum dolor sit amet.</td>
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-          </tbody>
+          <tbody>{this.newsList()}</tbody>
         </table>
       </div>
     );
