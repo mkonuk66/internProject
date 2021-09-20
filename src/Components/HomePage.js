@@ -15,19 +15,24 @@ export default class HomePage extends Component {
         <Slider />
         <Style />
         <div className="homepageBlocks">
-          <Notifications
-            {...this.props}
-            notifications={this.props.notifications}
-            getNotificationsDataFromDatabase={
-              this.props.getNotificationsDataFromDatabase
-            }
-          />{" "}
-          <hr className="homepageHr" />
-          <Events
-            {...this.props}
-            events={this.props.events}
-            getEventDataFromDatabase={this.props.getEventDataFromDatabase}
-          />
+          <div className="homepageBlock">
+            <Notifications
+              {...this.props}
+              notifications={this.props.notifications}
+              getNotificationsDataFromDatabase={
+                this.props.getNotificationsDataFromDatabase
+              }
+            />{" "}
+          </div>{" "}
+          <hr className="homepageHr" />{" "}
+          <div className="homepageBlock">
+            {" "}
+            <Events
+              {...this.props}
+              events={this.props.events}
+              getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+            />
+          </div>
         </div>
         <br />
         <hr />

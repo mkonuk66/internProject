@@ -39,7 +39,22 @@ const Event = (props) => (
         <cite>{MonthChanger(props.events.eventDate.split("-")[1])}</cite>
       </td>
       <td>
-        <p>{props.events.title}</p>
+        <p>{`${
+          props.events.title.split(" ").length <= 5
+            ? props.events.title
+            : props.events.title.split(" ")[0] +
+              " " +
+              props.events.title.split(" ")[1] +
+              " " +
+              props.events.title.split(" ")[2] +
+              " " +
+              props.events.title.split(" ")[3] +
+              " " +
+              props.events.title.split(" ")[4] +
+              " " +
+              "..."
+        }
+        `}</p>
       </td>
     </tr>
     <br />
