@@ -387,6 +387,7 @@ footer hr {
 .eventTitle {
   text-align: center;
   font-size: 35px;
+  margin-bottom: 1.5rem;
   font-weight: 900;
 }
 
@@ -481,18 +482,26 @@ footer hr {
   align-items: center;
 }
 
+.homepageBlock {
+  width: 45vw;
+}
+
 .homepageHr {
   width: 2px;
   border-bottom: 300px;
   border-style: dotted;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 750px) {
   .homepageBlocks {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+  }
+
+  .homepageBlock {
+    width: 100%;
   }
 
   .homepageHr {
@@ -713,5 +722,17 @@ footer hr {
 @media (max-width: 960px) {
   .adminDashboardButton {
     width: 150px;
+  }
+}
+
+/**/
+#contactMap {
+  width: 68rem;
+  height: 40rem;
+}
+@media (max-width: 960px) {
+  #contactMap {
+    width: auto;
+    height: auto;
   }
 }

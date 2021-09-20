@@ -100,10 +100,9 @@ export default class Contact extends Component {
             </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9981.732347475383!2d34.797648553967285!3d39.775843231050246!3m2!1i1024!2i768!4f13.1!5e1!3m2!1str!2str!4v1631260784666!5m2!1str!2str"
-              style={{ width: "68rem", height: "40rem" }}
-              allowfullscreen=""
               loading="lazy"
               title="iframe"
+              id="contactMap"
             ></iframe>
           </div>
         </div>

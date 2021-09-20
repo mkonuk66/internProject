@@ -41,7 +41,21 @@ const DetailNotice = (props) => (
         </cite>
       </td>
       <td>
-        <p>{props.notifications.title}</p>
+        <p>{`${
+          props.notifications.title.split(" ").length <= 5
+            ? props.notifications.title
+            : props.notifications.title.split(" ")[0] +
+              " " +
+              props.notifications.title.split(" ")[1] +
+              " " +
+              props.notifications.title.split(" ")[2] +
+              " " +
+              props.notifications.title.split(" ")[3] +
+              " " +
+              props.notifications.title.split(" ")[4] +
+              " " +
+              "..."
+        }`}</p>
       </td>
     </tr>
     <br />
