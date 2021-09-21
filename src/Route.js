@@ -26,6 +26,7 @@ import AdminEditNotification from "./Components/Admin/AdminEditNotification";
 import NotificationDetail from "./Components/NotificationDetail";
 import Nav from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import AdminEditNews from "./Components/Admin/AdminEditNews";
 
 const PrivateRoute = (props1) => {
   const location = useLocation();
@@ -229,6 +230,7 @@ export default class Routes extends Component {
             )}
           />
           <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
+          <PrivateRoute path="/adminEditNews" component={AdminEditNews} />
           <PrivateRoute path="/adminSlider" component={AdminSlider} />
           <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />
           <Route
