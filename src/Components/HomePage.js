@@ -33,7 +33,11 @@ export default class HomePage extends Component {
         </div>
         <br />
         <hr />
-        <News />
+        <News
+          {...this.props}
+          news={this.props.news}
+          getNewsDataFromDatabase={this.props.getNewsDataFromDatabase}
+        />
       </div>
     );
   }
