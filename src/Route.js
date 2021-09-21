@@ -27,6 +27,7 @@ import NotificationDetail from "./Components/NotificationDetail";
 import Nav from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import AdminEditNews from "./Components/Admin/AdminEditNews";
+import NewsDetail from "./Components/NewsDetail";
 
 const PrivateRoute = (props1) => {
   const location = useLocation();
@@ -57,12 +58,14 @@ export default class Routes extends Component {
                 <Nav />
                 <HomePage
                   {...props}
+                  notifications={this.props.notifications}
+                  events={this.props.events}
+                  news={this.props.news}
                   getNotificationDataFromDatabase={
                     this.props.getNotificationDataFromDatabase
                   }
-                  notifications={this.props.notifications}
-                  events={this.props.events}
                   getEventDataFromDatabase={this.props.getEventDataFromDatabase}
+                  getNewsDataFromDatabase={this.props.getNewsDataFromDatabase}
                 />
                 <Footer />
               </div>
@@ -129,11 +132,29 @@ export default class Routes extends Component {
             )}
           />
           <Route
-            path="/news"
-            render={() => (
+            path="/newsDetail/"
+            render={(props) => (
               <div>
                 <Nav />
-                <News />
+                <NewsDetail
+                  {...props}
+                  news={this.props.news}
+                  getNewsDataFromDatabase={this.props.getNewsDataFromDatabase}
+                />
+                <Footer />
+              </div>
+            )}
+          />
+          <Route
+            path="/news"
+            render={(props) => (
+              <div>
+                <Nav />
+                <News
+                  {...props}
+                  news={this.props.news}
+                  getNewsDataFromDatabase={this.props.getNewsDataFromDatabase}
+                />
                 <Footer />
               </div>
             )}
