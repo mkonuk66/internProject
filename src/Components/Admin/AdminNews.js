@@ -6,7 +6,7 @@ const News = (props) => (
     <td>{props.news.title}</td>
     <td>{props.news.newsDate}</td>
     <td>
-      <a href={"/adminNewsEdit/" + props.news._id}>
+      <a href={"/adminEditNews/" + props.news._id}>
         {" "}
         <i className="fa fa-pencil fa-2x adminIcon"></i>
       </a>
