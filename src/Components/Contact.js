@@ -47,7 +47,12 @@ export default class Contact extends Component {
                 </div>
                 <div className=" d-flex justify-content-center">
                   {" "}
-                  <p className=" btn btn-warning btn-lg mt-5">Mesaj Gönder</p>
+                  <p
+                    className=" btn btn-danger btn-lg mt-5"
+                    style={{ backgroundColor: "rgba(118, 7, 16)" }}
+                  >
+                    Mesaj Gönder
+                  </p>
                 </div>
               </div>
             </form>

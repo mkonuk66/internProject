@@ -807,3 +807,37 @@ footer hr {
   margin-bottom: 1rem;
   background-color: rgba(118, 7, 16);
 }
+
+.detailPageTitle {
+  font-size: 35px;
+  letter-spacing: 2px;
+}
+.detailPageImage {
+  width: 50%;
+}
+.detailPageDate {
+  font-weight: 300;
+  font-style: italic;
+  margin: 1rem;
+}
+.detailPageText {
+  letter-spacing: 2px;
+  font-size: 25px;
+  text-align: justify;
+  font-weight: 300;
+}
+@media (max-width: 960px) {
+  .detailPageTitle {
+    font-size: 20px;
+  }
+  .detailPageImage {
+    width: 100%;
+  }
+  .detailPageText {
+    font-size: 15px;
+    text-align: justify;
+    font-weight: 300;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

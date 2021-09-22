@@ -46,7 +46,7 @@ const DetailNotice = (props) => (
         <p className="allNoticeP">{props.notifications.title}</p>
       </td>
     </tr>
-    <br />
+    <br /> <br />
   </a>
 );
 

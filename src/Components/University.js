@@ -13,10 +13,10 @@ export default class University extends Component {
         </div>
         <div>
           <h1 className="display-4 universityTitle mt-5 mb-3">
-            Yozgat Bozok Üniversitesi
+            YOZGAT BOZOK ÜNİVERSİTESİ
           </h1>
           <p>
-            <h5 className="mt-3 mb-3">Tarihçe</h5> Yozgat Bozok Üniversitesi 01
+            <h5 className="mt-3 mb-3">TARİHÇE</h5> Yozgat Bozok Üniversitesi 01
             Mart 2006 tarihinde 5467 Sayılı Kanunla kurulmuştur. Kuruluş kanunu
             ile Erciyes Üniversitesi bünyesinde bulunan Fen-Edebiyat Fakültesi,
             İktisadî ve İdarî Bilimler Fakültesi, Mühendislik-Mimarlık
@@ -26,7 +26,7 @@ export default class University extends Component {
             Bilimleri ve Sosyal Bilimler Enstitüleri kurulmuştur.
             <h5 className="mt-3 mb-3">
               {" "}
-              Üniversitemizin merkez yerleşkesi
+              ÜNİVERSİTEMİZİN MERKEZ YERLEŞKESİ
             </h5>{" "}
             Yozgat Merkez’de Atatürk Yolu 7. km’de 4.100 dekarlık alanda bulunan
             Erdoğan Akdağ Yerleşkesi’dir. Merkez yerleşkede on iki fakülte, üç
@@ -36,8 +36,8 @@ export default class University extends Component {
             misafirhane, iki spor salonu, Kredi ve Yurtlar Kurumu’na bağlı
             yurtlar bulunmaktadır.{" "}
             <h5 className="mt-3 mb-3">
-              Üniversitemizin merkez yerleşke dışında şehir merkezinde faaliyet
-              gösteren birimleri
+              ÜNİVERSİTEMİZİN MERKEZ YERLEŞKE DIŞINDA ŞEHİR MERKEZİNDE FAALİYET
+              GÖSTEREN BİRİMLERİ
             </h5>
             Rektörlük Protokol Binası, Esentepe Mevki’inde bulunan yerleşke
             alanında iki meslek yüksekokulu ve Kredi ve Yurtlar Kurumu’na bağlı
@@ -69,8 +69,8 @@ export default class University extends Component {
             <h5 className="mt-3 mb-3">DEĞERLERİMİZ</h5> • İnsan haklarına ve
             evrensel değerlere saygı
             <br /> • Milli, manevi, kültürel değerlere sadakat
-            <br /> • Bilimsel etik kurallarına riayet, • Akademik özgürlük,
-            bilimsellik
+            <br /> • Bilimsel etik kurallarına riayet
+            <br /> • Akademik özgürlük, bilimsellik
             <br /> • Hukukun üstünlüğü, ifade özgürlüğü, fırsat eşitliği,
             yenilikçi, katılımcı, şeffaf ve güvenilir olmak
             <br /> • Öğrenci ve çalışan odaklı bir eğitim.

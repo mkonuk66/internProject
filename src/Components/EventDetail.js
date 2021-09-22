@@ -13,15 +13,14 @@ const Detail = (props) => (
           : props.events.eventImage[0].base64
       }
       alt="eventDetail"
-      width="50%"
-      className="mb-3"
+      className="detailPageImage mb-3"
     />
-    <h2 className="display-6">{props.events.title}</h2>
+    <h2 className="detailPageTitle">{props.events.title}</h2>
 
-    <span style={{ fontWeight: "300", fontStyle: "italic" }}>
+    <span className="detailPageDate">
       Etkinlik Tarih : {props.events.eventDate}
     </span>
-    <div style={{ fontSize: "25px", fontWeight: "100", textAlign: "justify" }}>
+    <div className="detailPageText">
       {ReactHtmlParser(`${props.events.content}`)}
     </div>
     <a

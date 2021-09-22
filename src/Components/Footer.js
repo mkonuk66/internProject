@@ -22,7 +22,7 @@ export default class Footer extends Component {
                 </a>
               </p>
               <p>
-                Faks :
+                Faks :{"  "}
                 <a href="tel:03542121193" target="_blank" rel="noreferrer">
                   <span>0 (354) 212 11 93</span>
                 </a>
