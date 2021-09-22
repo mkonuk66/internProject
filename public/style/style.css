@@ -46,13 +46,13 @@ a {
 }
 
 #navLogo {
-  width: 250px;
+  width: 275px;
   margin-left: 20vh;
   margin-right: 5vh;
 }
 
 .navLinkBlock {
-  margin-left: 0vh;
+  margin-left: 45vh;
   margin-right: 20vh;
 }
 
@@ -735,4 +735,75 @@ footer hr {
     width: auto;
     height: auto;
   }
+}
+
+/**/
+.university {
+  text-align: justify;
+}
+.universityImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.universityTitle {
+  text-align: center;
+}
+@media (max-width: 1025px) {
+  .universityImage {
+    width: 100%;
+  }
+}
+
+.academic {
+  background-image: url();
+}
+
+.academic a {
+  text-decoration: none;
+  color: #000;
+}
+.academic a:hover {
+  color: rgba(118, 7, 16);
+}
+
+.academicBachelor {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.academicAssociate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+.academicBlocks {
+  text-align: center;
+  margin: 2rem;
+}
+
+@media (max-width: 960px) {
+  .academicBachelor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .academicAssociate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-bottom: 3rem;
+  }
+}
+
+.student {
+  text-align: center;
+}
+.student a {
+  margin-bottom: 1rem;
+  background-color: rgba(118, 7, 16);
 }

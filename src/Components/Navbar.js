@@ -54,7 +54,7 @@ const NavBar = (props) => {
             </NavItem>
             <NavItem>
               <NavLink
-                href="/comingSoon"
+                href="/university"
                 className="navLinks"
                 style={{ color: "#fff" }}
               >
@@ -62,83 +62,35 @@ const NavBar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/comingSoon" className="navLinks">
-                {" "}
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret style={{ color: "#fff" }}>
-                    Akademik
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem href="/comingSoon">
-                      Mühendislik Fakültesi
-                    </DropdownItem>
-                    <DropdownItem href="/comingSoon">
-                      Tıp Fakültesi
-                    </DropdownItem>
-                    <DropdownItem href="/comingSoon">
-                      İlahiyat Fakültesi
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>{" "}
+              <NavLink
+                href="/academic"
+                className="navLinks"
+                style={{ color: "#fff" }}
+              >
+                Akademik
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="/comingSoon" className="navLinks">
-                {" "}
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret style={{ color: "#fff" }}>
-                    Birimler
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem href="/comingSoon">
-                      Bilgi İşlem Daire Başkanlığı
-                    </DropdownItem>
-                    <DropdownItem href="/comingSoon">
-                      Öğrenci İşleri Daire Başkanlığı
-                    </DropdownItem>
-                    <DropdownItem href="/comingSoon">
-                      Kariyer Merkezi
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>{" "}
-              </NavLink>
-            </NavItem>
+
             <NavItem>
               <NavLink
-                href="/comingSoon"
+                href="/student"
                 className="navLinks"
                 style={{ color: "#fff" }}
               >
                 Öğrenci
               </NavLink>
             </NavItem>
+
             <NavItem>
               <NavLink
-                href="/comingSoon"
-                className="navLinks"
-                style={{ color: "#fff" }}
-              >
-                E-Hizmetler
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href="/comingSoon"
+                href="https://bozok.edu.tr/uluslararasi"
                 className="navLinks"
                 style={{ color: "#fff" }}
               >
                 Uluslararası
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink
-                href="/comingSoon"
-                className="navLinks"
-                style={{ color: "#fff" }}
-              >
-                Hızlı Erişim
-              </NavLink>
-            </NavItem>
+
             <NavItem>
               <NavLink
                 href="/contact"

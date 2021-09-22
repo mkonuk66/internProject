@@ -13,6 +13,7 @@ const Detail = (props) => (
           : props.events.eventImage[0].base64
       }
       alt="eventDetail"
+      width="50%"
       className="mb-3"
     />
     <h2 className="display-6">{props.events.title}</h2>

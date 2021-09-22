@@ -13,6 +13,7 @@ const DetailNotification = (props) => (
           : props.notifications.notificationImage.base64
       }
       alt="notificationImage"
+      width="50%"
       className="mb-3"
     />
     <h2 className="display-6">{props.notifications.title}</h2>
