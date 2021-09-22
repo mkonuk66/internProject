@@ -6,7 +6,7 @@ const SliderSchema = new Schema({
     type: String,
   },
   sliderImage: {
-    type: String,
+    type: Object,
   },
   createdAt: {
     type: String,

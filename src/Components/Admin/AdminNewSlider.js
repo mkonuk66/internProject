@@ -22,7 +22,7 @@ export default class AdminNewSlider extends Component {
     console.log(newSlider);
     axios
       .post(
-        "https://mkonuk-intern-site.herokuapp.com/admin/sliders/newSlider",
+        "https://mkonuk-intern-site.herokuapp.com/admin/sliders/newSlider/",
         newSlider
       )
       .then(
@@ -61,7 +61,7 @@ export default class AdminNewSlider extends Component {
             <br />
             <FileBase64 multiple={false} onDone={this.getFiles.bind(this)} />
           </div>
-          <a href="/adminSlider" class="btn btn-warning mb-2 mt-5">
+          <a class="btn btn-warning mb-2 mt-5" onClick={this.handleSubmit}>
             Slider Ekle
           </a>
         </form>
