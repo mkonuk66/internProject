@@ -67,7 +67,6 @@ export default class News extends Component {
     let sortedNews = []
       .concat(this.props.news)
       .sort((a, b) => (a.newsDate < b.newsDate ? 1 : -1));
-    let lastIndex = sortedNews.length;
     return sortedNews.map((currentnews, i) => {
       if (i % 4 === 0) {
         return <NewsSpace news={currentnews} key={currentnews._id} />;

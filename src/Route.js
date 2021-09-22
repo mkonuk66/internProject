@@ -28,6 +28,9 @@ import Nav from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import AdminEditNews from "./Components/Admin/AdminEditNews";
 import NewsDetail from "./Components/NewsDetail";
+import University from "./Components/University";
+import Academic from "./Components/Academic";
+import Student from "./Components/Student";
 
 const PrivateRoute = (props1) => {
   const location = useLocation();
@@ -75,6 +78,30 @@ export default class Routes extends Component {
               </div>
             )}
           />{" "}
+          <Route
+            path="/university"
+            render={() => (
+              <div>
+                <Nav /> <University /> <Footer />
+              </div>
+            )}
+          />
+          <Route
+            path="/academic"
+            render={() => (
+              <div>
+                <Nav /> <Academic /> <Footer />
+              </div>
+            )}
+          />
+          <Route
+            path="/student"
+            render={() => (
+              <div>
+                <Nav /> <Student /> <Footer />
+              </div>
+            )}
+          />
           <Route
             path="/eventDetail"
             render={(props) => (

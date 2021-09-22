@@ -61,9 +61,12 @@ export default class AdminNewSlider extends Component {
             <br />
             <FileBase64 multiple={false} onDone={this.getFiles.bind(this)} />
           </div>
-          <a class="btn btn-warning mb-2 mt-5" onClick={this.handleSubmit}>
+          <element
+            class="btn btn-warning mb-2 mt-5"
+            onClick={this.handleSubmit}
+          >
             Slider Ekle
-          </a>
+          </element>
         </form>
       </div>
     );
