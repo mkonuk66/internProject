@@ -61,11 +61,15 @@ export default class Routes extends Component {
                   notifications={this.props.notifications}
                   events={this.props.events}
                   news={this.props.news}
+                  sliders={this.props.sliders}
                   getNotificationDataFromDatabase={
                     this.props.getNotificationDataFromDatabase
                   }
                   getEventDataFromDatabase={this.props.getEventDataFromDatabase}
                   getNewsDataFromDatabase={this.props.getNewsDataFromDatabase}
+                  getSliderDataFromDatabase={
+                    this.props.getSliderDataFromDatabase
+                  }
                 />
                 <Footer />
               </div>
@@ -252,7 +256,17 @@ export default class Routes extends Component {
           />
           <PrivateRoute path="/adminNewsNew" component={AdminNewNews} />
           <PrivateRoute path="/adminEditNews" component={AdminEditNews} />
-          <PrivateRoute path="/adminSlider" component={AdminSlider} />
+          <PrivateRoute
+            path="/adminSlider"
+            render={(props) => (
+              <AdminSlider
+                {...props}
+                sliders={this.props.sliders}
+                getSliderDataFromDatabase={this.props.getSliderDataFromDatabase}
+                deleteSlider={this.props.deleteSlider}
+              />
+            )}
+          />
           <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />
           <Route
             render={() => (

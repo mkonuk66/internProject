@@ -9,7 +9,11 @@ export default class HomePage extends Component {
   render() {
     return (
       <div>
-        <Slider />
+        <Slider
+          {...this.props}
+          sliders={this.props.sliders}
+          getSliderDataFromDatabase={this.props.getSliderDataFromDatabase}
+        />
         <Style />
         <div className="homepageBlocks">
           <div className="homepageBlock">

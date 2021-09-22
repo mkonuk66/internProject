@@ -10,7 +10,14 @@ export default class App extends Component {
     this.deleteEvent = this.deleteEvent.bind(this);
     this.deleteNotification = this.deleteNotification.bind(this);
     this.deleteNews = this.deleteNews.bind(this);
-    this.state = { users: [], events: [], notifications: [], news: [] };
+    this.deleteSlider = this.deleteSlider.bind(this);
+    this.state = {
+      users: [],
+      events: [],
+      notifications: [],
+      news: [],
+      sliders: [],
+    };
   }
 
   componentDidMount() {
@@ -18,6 +25,7 @@ export default class App extends Component {
     this.getEventDataFromDatabase();
     this.getNotificationDataFromDatabase();
     this.getNewsDataFromDatabase();
+    this.getSliderDataFromDatabase();
   }
 
   getUserDataFromDatabase() {
@@ -58,6 +66,17 @@ export default class App extends Component {
       .get("https://mkonuk-intern-site.herokuapp.com/admin/news/")
       .then((response) => {
         this.setState({ news: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  getSliderDataFromDatabase() {
+    axios
+      .get("https://mkonuk-intern-site.herokuapp.com/admin/sliders/")
+      .then((response) => {
+        this.setState({ slider: response.data });
       })
       .catch((error) => {
         console.log(error);
@@ -114,6 +133,18 @@ export default class App extends Component {
     });
   }
 
+  deleteSlider(id) {
+    axios
+      .delete("https://mkonuk-intern-site.herokuapp.com/admin/sliders/" + id)
+      .then((response) => {
+        console.log(response.data);
+      });
+
+    this.setState({
+      sliders: this.state.sliders.filter((el) => el._id !== id),
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -127,16 +158,19 @@ export default class App extends Component {
                   events={this.state.events}
                   notifications={this.state.notifications}
                   news={this.state.news}
+                  sliders={this.state.sliders}
                   getUserDataFromDatabase={this.getUserDataFromDatabase}
                   getEventDataFromDatabase={this.getEventDataFromDatabase}
                   getNotificationDataFromDatabase={
                     this.getNotificationDataFromDatabase
                   }
                   getNewsDataFromDatabase={this.getNewsDataFromDatabase}
+                  getSliderDataFromDatabase={this.getSliderDataFromDatabase}
                   deleteUser={this.deleteUser}
                   deleteEvent={this.deleteEvent}
                   deleteNotification={this.deleteNotification}
                   deleteNews={this.deleteNews}
+                  deleteSlider={this.deleteSlider}
                 />
               )}
             />

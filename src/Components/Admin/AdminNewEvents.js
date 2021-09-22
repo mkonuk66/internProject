@@ -66,7 +66,7 @@ export default class AdminNewEvents extends Component {
           <div className="form-group mt-4">
             <label className=" mb-1">Etkinlik Fotoğraf</label>
             <br />
-            <FileBase64 multiple={true} onDone={this.getFiles.bind(this)} />
+            <FileBase64 multiple={false} onDone={this.getFiles.bind(this)} />
           </div>
           <div className="form-group mt-4">
             <div className="App">
