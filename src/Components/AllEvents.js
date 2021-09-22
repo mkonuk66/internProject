@@ -45,6 +45,7 @@ const Event = (props) => (
       </td>
     </tr>
     <br />
+    <br />
   </a>
 );
 

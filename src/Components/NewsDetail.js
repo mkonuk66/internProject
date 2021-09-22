@@ -13,15 +13,12 @@ const DetailNews = (props) => (
           : props.news.newsImage.base64
       }
       alt="notificationImage"
-      width="50%"
-      className="mb-3"
+      className=" detailPageImage mb-3"
     />
-    <h2 className="display-6">{props.news.title}</h2>
+    <h2 className="detailPageTitle">{props.news.title}</h2>
 
-    <span style={{ fontWeight: "300", fontStyle: "italic" }}>
-      Haber Tarih : {props.news.newsDate}
-    </span>
-    <div style={{ fontSize: "25px", fontWeight: "100", textAlign: "justify" }}>
+    <span className="detailPageDate">Haber Tarih : {props.news.newsDate}</span>
+    <div className="detailPageText">
       {ReactHtmlParser(`${props.news.content}`)}
     </div>
     <a

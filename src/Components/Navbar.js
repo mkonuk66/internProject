@@ -6,17 +6,13 @@ import {
   Nav,
   NavItem,
   NavLink,
-  DropdownToggle,
-  UncontrolledDropdown,
-  DropdownItem,
-  DropdownMenu,
 } from "reactstrap";
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  const url = "http://localhost:3000/";
+  const url = "https://intern.mkonuk.com/";
   window.addEventListener("DOMContentLoaded", NavController);
   function NavController() {
     if (document.URL === url) {
@@ -83,8 +79,12 @@ const NavBar = (props) => {
 
             <NavItem>
               <NavLink
-                href="https://bozok.edu.tr/uluslararasi"
+                href=""
                 className="navLinks"
+                onClick={() => {
+                  alert("Bağlantıya yönlendiriliyorsunuz !");
+                  window.open("https://bozok.edu.tr/uluslararasi", "_blank");
+                }}
                 style={{ color: "#fff" }}
               >
                 Uluslararası
