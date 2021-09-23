@@ -26,9 +26,11 @@ export default class AdminNewSlider extends Component {
         newSlider
       )
       .then(
-        (res) => console.log(res.data),
-        alert("Slider başarıyla eklendi"),
-        window.open("/adminSlider", "_self")
+        (res) => (
+          alert("Slider başarıyla eklendi"),
+          console.log(res.data),
+          window.open("/adminSlider", "_self")
+        )
       )
       .catch((err) => alert("Hata: " + err));
   }

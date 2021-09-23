@@ -1,6 +1,44 @@
 import React, { Component } from "react";
 
+const SliderAdminList = (props) => (
+  <tr>
+    <th scope="row">{props.sliders._id}</th>
+    <td>{props.sliders.title}</td>
+    <td>{props.sliders.sliderImage.name}</td>
+    <td>{props.sliders.createdAt}</td>
+    <td>
+      <a href={"/adminEditSlider/" + props.sliders._id}>
+        {" "}
+        <i className="fa fa-pencil fa-2x adminIcon"></i>
+      </a>
+    </td>
+    <td>
+      <button
+        onClick={() => {
+          props.deleteSlider(props.sliders._id);
+          alert(props.sliders.title + " adlı slider silindi.");
+        }}
+        style={{ border: "0px", backgroundColor: "transparent" }}
+      >
+        {" "}
+        <i className="fa fa-trash fa-2x adminIcon"></i>
+      </button>
+    </td>
+  </tr>
+);
+
 export default class AdminSlider extends Component {
+  sliderList() {
+    return this.props.sliders.map((currentslider) => {
+      return (
+        <SliderAdminList
+          sliders={currentslider}
+          key={currentslider._id}
+          deleteSlider={this.props.deleteSlider}
+        />
+      );
+    });
+  }
   render() {
     return (
       <div className="container mt-5">
@@ -25,58 +63,15 @@ export default class AdminSlider extends Component {
           <caption>Slider Listesi</caption>
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Slider URL</th>
+              <th scope="col">Id</th>
+              <th scope="col">Slider Başlık</th>
+              <th scope="col">Slider Fotoğraf Adı</th>
+              <th scope="col">Slider Oluşturma Tarihi</th>
               <th scope="col">Güncelle</th>
               <th scope="col">Sil</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>./images/slider/1.webp</td>
-
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>./images/slider/2.webp</td>
-
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>./images/slider/3.webp</td>
-
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>./images/slider/4.webp</td>
-
-              <td>
-                <i class="fa fa-edit fa-2x"></i>
-              </td>
-              <td>
-                <i class="fa fa-trash fa-2x"></i>
-              </td>
-            </tr>
-          </tbody>
+          <tbody>{this.sliderList()}</tbody>
         </table>
       </div>
     );

@@ -12,7 +12,7 @@ const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  const url = "https://intern.mkonuk.com/";
+  const url = "http://localhost:3000/";
   window.addEventListener("DOMContentLoaded", NavController);
   function NavController() {
     if (document.URL === url) {
