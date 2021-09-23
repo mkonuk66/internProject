@@ -76,7 +76,7 @@ export default class App extends Component {
     axios
       .get("https://mkonuk-intern-site.herokuapp.com/admin/sliders/")
       .then((response) => {
-        this.setState({ slider: response.data });
+        this.setState({ sliders: response.data });
       })
       .catch((error) => {
         console.log(error);
