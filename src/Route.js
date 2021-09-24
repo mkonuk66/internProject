@@ -31,6 +31,7 @@ import NewsDetail from "./Components/NewsDetail";
 import University from "./Components/University";
 import Academic from "./Components/Academic";
 import Student from "./Components/Student";
+import AdminEditSlider from "./Components/Admin/AdminEditSlider";
 
 const PrivateRoute = (props1) => {
   const location = useLocation();
@@ -294,6 +295,7 @@ export default class Routes extends Component {
               />
             )}
           />
+          <PrivateRoute path="/adminEditSlider" component={AdminEditSlider} />
           <PrivateRoute path="/adminSliderNew" component={AdminNewSlider} />
           <Route
             render={() => (
