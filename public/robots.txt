@@ -1,7 +1,0 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
-User-Agent: *
-Allow: 
-
-Sitemap: https://www.mkonuk.com/sitemap.xml
